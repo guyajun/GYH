@@ -1,0 +1,559 @@
+<!DOCTYPE struts PUBLIC
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.i18n.encoding" value="utf-8"/>
+<constant name="struts.multipart.maxSize" value="104758600" />
+	<include file="struts-default.xml" />
+	<!-- ====================施工端===================== -->
+	<package name="system" namespace="/system" extends="struts-default">
+		<action name="constructLogin" class="org.shu.admin.action.SystemAction"
+			method="constructLogin">
+			<result name="success">/Web/index.jsp</result>
+			<result name="error">/Web/admin-manage/login.jsp</result>
+		</action>	
+		<action name="editAuthority" class="org.shu.construct.action.AuthorityAction" method="saveRight">
+			<result name="success">/Web/admin-manage/role.jsp</result>
+		</action>
+		<action name="allRole" class="org.shu.action.RoleInfoAction" method="getAll">
+			<result name="success">/Web/admin-manage/role.jsp</result>
+		</action>
+		<action name="role_*" class="org.shu.action.RoleInfoAction" method="{1}">
+			<result type="redirectAction">allRole</result>
+		</action>
+		<action name="getRoleByName" class="org.shu.action.RoleInfoAction" method="queryRole">
+			<result>/Web/admin-manage/role.jsp</result>
+		</action>
+		<action name="getByRoleId" class="org.shu.construct.action.AuthorityAction" method="getByRoleId">
+			<result name="success">/Web/admin-manage/getByRoleId.jsp</result>
+		</action>
+		<action name="tree" class="org.shu.construct.action.MenuAction">
+			<result name="success">/Web/admin-manage/role.jsp</result>
+		</action>
+	</package>
+	<package name="web" namespace="/construct-web" extends="struts-default">
+		<action name="ftpUpload" class="org.shu.construct.action.FtpAction" method="upload">
+			<result name="success">/Web/gp-history/sonftp.jsp</result>
+		</action>
+		<action name="ftpDownload" class="org.shu.construct.action.FtpAction" method="download">
+			<result name="success">/Web/gp-history/sonftp.jsp</result>
+		</action>
+		<action name="ftpDownloadFolder" class="org.shu.construct.action.FtpAction" method="downloadFolder">
+			<result name="success">/Web/gp-history/ftp.jsp</result>
+		</action>
+		<action name="ftpDelete" class="org.shu.construct.action.FtpAction" method="delete">
+			<result name="success">/Web/gp-history/sonftp.jsp</result>
+		</action>
+		<action name="ftpDeleteFolder" class="org.shu.construct.action.FtpAction" method="deleteFolder">
+			<result name="success">/Web/gp-history/ftp.jsp</result>
+		</action>
+		<action name="ftpFolders" class="org.shu.construct.action.FtpAction" method="getAllFtpFolders">
+			<result name="success">/Web/gp-history/ftp.jsp</result>
+		</action>
+		<action name="ftpCreate" class="org.shu.construct.action.FtpAction" method="create">
+			<result name="success">/Web/gp-history/ftp.jsp</result>
+		</action>
+		<action name="getSon" class="org.shu.construct.action.FtpAction" method="getSon">
+			<result name="success">/Web/gp-history/sonftp.jsp</result>
+		</action>
+		<action name="menu" class="org.shu.construct.action.MenuAction">
+			<result name="success">/Web/menu.jsp</result>
+		</action>
+		<action name="total_*" class="org.shu.construct.action.TotalAction" method="{1}">
+			<result name="success">/Web/gp-history/gp-construct-info.jsp</result>
+		</action>
+		<action name="mysql" class="org.shu.construct.action.TreeAction" method="getList">
+			<result name="success">/Web/construct-manage/tree.jsp</result>
+		</action>
+		<action name="monitor_*" class="org.shu.construct.action.MonitorAction" method="{1}">
+			<result name="success">/Web/construct-manage/construct-monitor-data.jsp</result>
+		</action>
+		<action name="curveMonitor" class="org.shu.construct.action.MonitorChart" method="getTimeSeriesChart">
+			<result name="success">/Web/construct-manage/construct-monitor-curve.jsp</result>
+		</action>
+		<action name="anotherDb_*" class="org.shu.construct.action.ProduceGP" method="{1}">
+			<result name="success">/Web/gp-history/gp-produce-info.jsp</result>
+		</action>
+		<action name="chartAdvance" class="org.shu.construct.action.ChartAdvance" method="getChart">
+			<result name="success">/Web/construct-manage/construct-data-advance-curve.jsp</result>
+		</action>
+		<action name="excelAdvance" class="org.shu.construct.action.AdvanceAction" method="exportExcel">
+			<result name="success" type="redirectAction">advance_getAllRecord</result>
+		</action>
+		<action name="advance_*" class="org.shu.construct.action.AdvanceAction" method="{1}">
+			<result name="success">/Web/construct-manage/construct-data-advance.jsp</result>
+		</action>
+		<action name="draw" class="org.shu.construct.action.TimeSeriesChart" method="getTimeSeriesChart">
+			<result name="success">/Web/construct-manage/construct-data-mud-curve.jsp</result>
+		</action>
+		<action name="soil" class="org.shu.construct.action.SoilAction" method="getAllRecord">
+			<result name="success">/Web/construct-manage/construct-data-mud.jsp</result>
+			<result name="input">/Web/construct-manage/construct-data-mud.jsp</result>
+		</action>
+		<action name="queryLoop" class="org.shu.construct.action.SoilAction" method="getById">
+			<result name="success">/Web/construct-manage/construct-data-mud.jsp</result>
+		</action>
+		<action name="queryDate" class="org.shu.construct.action.SoilAction" method="getByCno">
+			<result name="success">/Web/construct-manage/construct-data-mud.jsp</result>
+		</action>
+		<action name="excelAll" class="org.shu.construct.action.SoilAction" method="exportExcel">
+			<result name="success" type="redirectAction">soil</result>
+		</action>
+		<action name="excelPartDate" class="org.shu.construct.action.SoilAction" method="exportExcelByDate">
+			<result name="success">/Web/construct-manage/construct-data-mud.jsp</result>
+		</action>
+		<action name="excelPartLoop" class="org.shu.construct.action.SoilAction" method="exportExcelByLoop">
+			<result name="success">/Web/construct-manage/construct-data-mud.jsp</result>
+		</action>
+		
+	</package>
+	<package name="construct123" extends="struts-default">
+
+		
+		
+		
+		<action name="constructUpload" class="org.shu.construct.action.ConstructUploadAction">
+			<result name="success">/construct/uploadsucces.jsp</result>
+		</action>
+		<action name="waterProof1" class="org.shu.construct.action.WaterProofAction" method="SAVEURL1">
+			<result name="success">/construct/dailywork.jsp</result>
+		</action>
+		<action name="waterProof2" class="org.shu.construct.action.WaterProofAction" method="SAVEURL2">
+			<result name="success">/construct/dailywork.jsp</result>
+		</action>
+		<action name="waterProof3" class="org.shu.construct.action.WaterProofAction" method="SAVEURL3">
+			<result name="success">/construct/dailywork.jsp</result>
+		</action>
+		
+		<action name="boltQuality1" class="org.shu.construct.action.BoltQualityAction" method="SAVEURL1">
+			<result name="success">/construct/dailywork.jsp</result>
+		</action>
+		<action name="boltQuality2" class="org.shu.construct.action.BoltQualityAction" method="SAVEURL2">
+			<result name="success">/construct/dailywork.jsp</result>
+		</action>
+	</package>
+	
+	<package name="construct" namespace="/construct" extends="struts-default">
+		<action name="constructsyn" class="org.shu.construct.action.ConnectionTest" method="synch">
+		 <result name="success">/construct/synsuccess.jsp</result>
+		 <result name="error">/construct/synerror.jsp</result>
+		</action>
+		
+		<action name="constructupload" class="org.shu.construct.action.UploadAction">
+		 <result name="success">/construct/uploadsuccess.jsp</result>
+		 <result name="error">/construct/uploaderror.jsp</result>
+		</action>
+		
+		<action name="constructsearch" class="org.shu.construct.action.ConstructFileAction"
+			method="constructSearch">
+			<result name="str1">/construct/waterproof.jsp</result>
+			<result name="str2">/construct/boltquality.jsp</result>
+			<result name="str3">/construct/shieldprocess.jsp</result>
+			<result name="str4">/construct/syngrout.jsp</result>
+			<result name="str5">/construct/shieldpose.jsp</result>
+			<result name="error">/construct/searcherror.jsp</result>
+		</action>
+		
+		<action name="constructlogin" class="org.shu.construct.action.SystemAction"
+			method="login">
+			<result name="success">welcome.jsp</result>
+			<result name="failure">loginerror.jsp</result>
+		</action>
+		
+	</package>	
+	
+	
+	<!-- ====================结束======================= -->
+	
+	<package name="material" namespace="/material" extends="struts-default">
+		<action name="comboData" class="org.shu.action.SteelRawAction" method="comboData">
+		</action>
+		<action name="comboData_concrete" class="org.shu.action.ConcQualAction" method="comboData">
+		</action>
+		<action name="comboData_preEmbed" class="org.shu.action.PreEmbedAction" method="comboData">
+		</action>
+		<action name="steelQualData" class="org.shu.action.SteelQualAction" method="steelQualData">
+		</action>
+		
+	</package>	
+	<package name="adminjson1"  namespace="/admin" extends="json-default">
+		<action name="ShowRoleDataGrid" class="org.shu.action.AuthorityManagement" method="rolesDataGrid">
+				<result type="json"></result>
+		</action>
+		<action name="ShowModulesTree" class="org.shu.action.AuthorityManagement" method="modulesTree">
+				<result type="json"></result>
+		</action>
+		<action name="UserAuthority" class="org.shu.action.AuthorityManagement" method="userAuthority">
+				<result type="json"></result>
+		</action>
+		<action name="getAllUsers" class="org.shu.action.AdminAction" method="getAllUsers">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="userDataGrid" class="org.shu.admin.action.UserAction"
+			method="userDataGrid">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="deptDataGrid" class="org.shu.admin.action.DepartmentAction"
+			method="deptDataGrid">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="gpDataGrid" class="org.shu.action.GpTotalInfoAction"
+			method="gpDataGrid">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="planDataGrid" class="org.shu.plan.action.PlanAction"
+			method="planDataGrid">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	<package name="admin" namespace="/admin1" extends="json-default">
+		<action name="EditAurhotiry" class="org.shu.action.AuthorityManagement" method="editAurhotiry">
+			<result type="json"></result>	
+		</action>
+	</package>	
+	
+	
+	<package name="test" extends="struts-default">
+		<!-- =========================测试================= -->
+		
+		<action name="steelRemain" class="org.shu.action.SteelRemainAction"
+			method="findRemainSteel">
+			<result name="success">/analysis/steelremain.jsp</result>
+		</action>
+		
+		<action name="readrecord" class="org.shu.action.SteelRemainAction"
+			method="readRemainSteel">
+			<result name="success">/analysis/steelremain.jsp</result>
+		</action>
+		
+		<action name="recalculate" class="org.shu.action.SteelRemainAction"
+			method="recalculateRemainSteel">
+			<result name="success">/analysis/steelremain.jsp</result>
+		</action>
+		
+		<action name="calculateGpCount1" class="org.shu.action.SteelRemainAction"
+			method="readRemainSteel">
+			<result name="success">/analysis/recalculateGpCount.jsp</result>
+		</action>
+		<action name="calculateGpCount" class="org.shu.action.SteelRemainAction"
+			method="calculateGpCount">
+			<result name="success">/analysis/steelremain.jsp</result>
+		</action>
+		
+		<action name="findConcQual" class="org.shu.action.GpTotalInfoAction" method="findConcQual">
+			<result name="success">/product/concQual_detail.jsp</result>
+		</action>
+		<action name="findConcMix" class="org.shu.action.GpTotalInfoAction" method="findConcMix">
+			<result name="success">/product/concMix_detail.jsp</result>
+		</action>
+		<action name="findPreEmbed" class="org.shu.action.GpTotalInfoAction" method="findPreEmbed">
+			<result name="success">/product/preEmbed_detail.jsp</result>
+		</action>
+		
+		<action name="findConcResist" class="org.shu.action.GpTotalInfoAction" method="findConcResist">
+			<result name="success">/product/concResist_detail.jsp</result>
+		</action>
+		<action name="findSteelQual" class="org.shu.action.GpTotalInfoAction" method="findSteelQual">
+			<result name="success">/product/steelQual_detail.jsp</result>
+		</action>
+		<action name="findSteelRaw" class="org.shu.action.GpTotalInfoAction" method="findSteelRaw">
+			<result name="success">/product/steelRaw_detail.jsp</result>
+		</action>
+		
+		
+		<action name="addgp" class="org.shu.action.GpTotalInfoAction" method="addGP">
+			<result name="success">/product/GPstatus.jsp</result>
+		</action>
+		<action name="gpstatusdel" class="org.shu.action.GpTotalInfoAction" method="delGP">
+			<result name="success">/product/GPstatus.jsp</result>
+		</action>
+		<action name="gptotals">
+		<result name="success">/product/GPstatus.jsp</result>
+		</action>
+		
+		<action name="zproject" class="org.shu.action.GpTotalInfoAction" method="zproject">
+			<result name="success">/produce/z_project.jsp</result>
+			<result name="false">/system/login.jsp</result>
+		</action>
+		
+		
+		
+		<action name="proenter" class="org.shu.action.ProEnterAction" method="proEnter">
+		 <result name="success">/produce/z_project.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="storage" class="org.shu.plan.action.TransportAction" method="storageGP">
+		 <result name="success">/transport/z_wuliu03.jsp</result>
+		</action>
+		<action name="gpReceive" class="org.shu.plan.action.TransportAction" method="receiveGP">
+		 <result name="success">/transport/z_wuliu02.jsp</result>
+		</action>
+		<action name="outgp" class="org.shu.plan.action.TransportAction" method="outGP">
+		 <result name="success">/transport/z_wuliu01.jsp</result>
+		</action>
+		
+		
+		<action name="readTxt" class="org.shu.action.ReadTXTAction" method="readTxt">
+			<result name="success">/material/material_chip.jsp</result>
+		</action>
+		<action name="readTxt1" class="org.shu.action.ReadTXTAction1" method="readTxt">
+			<result name="success">/material/material_chip.jsp</result>
+		</action>
+		<action name="deleteProInfo" class="org.shu.action.ProInfoAction" method="deleteProInfo">
+			<result name="success">/admin/projectmanage.jsp</result>
+		</action>
+		<action name="queryProject" class="org.shu.action.ProInfoAction" method="findByName">
+			<result name="success">/admin/search_project.jsp</result>
+		</action>
+		
+		<action name="updateProInfo" class="org.shu.action.ProInfoAction" method="updateProInfo">
+			<result name="success">/admin/projectdetail.jsp</result>
+		</action>
+		
+		<action name="findProInfo" class="org.shu.action.ProInfoAction" method="findProInfo">
+			<result name="success">/admin/projectdetail.jsp</result>
+		</action>
+		
+		<action name="show_project" class="org.shu.action.ProInfoAction" method="showProject">
+	   		<result name="success">/admin/projectmanage.jsp</result>
+   	   </action>
+   	   
+		<action name="show_RFID" class="org.shu.action.RfidRefGpAction" method="showRFID">
+	   		<result name="success">/material/material_chip.jsp</result>
+   	   </action>
+   	   <!-- 智能分析 -->
+   	   <action name="evaluate">
+	   		<result name="success">/analysis/evaluate.jsp</result>
+   	   </action>
+   	    <action name="evaluateForm" class="org.shu.action.AnalysisAction">
+	   		<result name="success">/analysis/evaluate.jsp</result>
+	   		<result name="error">/analysis/common_error.jsp</result>
+ 	   		<result name="PDFERROR">/analysis/pdf_error.jsp</result> 
+	   		<result name="COUNT">/analysis/count_error.jsp</result>
+   	   </action>	
+   	   <action name="testEvaluate" class="org.shu.action.AnalysisAction" method="testEvaluate">
+	   		 <result name="success">/analysis/result.jsp</result>
+   	   </action>   
+   	   <!-- 智能分析结束 -->
+		<action name="upload" class="org.shu.action.UploadAction">
+			<result name="success">/admin/welcome.jsp</result>
+		</action>
+		<action name="uploadPreEmbed" class="org.shu.action.PreviewUploadAction">
+			<result name="success">/material/material_preEmbed.jsp</result>
+		</action>
+		<action name="uploadSteel" class="org.shu.action.PreviewUploadAction">
+			<result name="success">/material/material_steel.jsp</result>
+		</action>
+		<action name="uploadConcrete" class="org.shu.action.PreviewUploadAction">
+			<result name="success">/material/material_concrete.jsp</result>
+		</action>
+		<action name="login" class="org.shu.admin.action.SystemAction"
+			method="login">
+			<result name="success">welcome.jsp</result>
+			<result name="failure">loginerror.jsp</result>
+		</action>
+		
+		
+		<action name="testMenu" class="org.shu.action.TestAction"
+			method="testMenu">
+			<result name="success">/produce/produce_left.jsp</result>
+		</action>
+		
+		<action name="baseInfo" class="org.shu.action.TestAction"
+			method="baseInfo">
+			<result name="success">/produce/base_info.jsp</result>
+		</action>
+		<action name="lastedInfo" class="org.shu.action.TestAction"
+			method="lastedInfo">
+			<result name="success">/produce/lasted_info.jsp</result>
+		</action>
+		
+		<action name="uploadPro" class="org.shu.plan.action.UploadAction">
+			<result name="success">/upload/success.jsp</result>
+		</action>
+		
+		<action name="gptotal" class="org.shu.connection.Gptotal" method="gptotal">
+			<result name="success">/system/gptotalsuccess.jsp</result>
+		</action>
+		<action name="synchronization" class="org.shu.connection.ConnectionTest" method="synch">
+			<result name="success">/system/success.jsp</result>
+		</action>
+		
+		
+		<action name="proInfo" class="org.shu.action.ProInfoAction">
+	   		<result name="success">/admin/projectmanage.jsp</result>	   		
+   	   </action>
+   	   <action name="steelQual" class="org.shu.action.SteelQualAction">
+	   		<result name="success">/material/material_steel.jsp</result>	   		
+   	   </action>
+   	   
+   	    <action name="manufacture" class="org.shu.action.ManufacturerAction">
+	   		<result name="success">/material/material_manufacture.jsp</result>	   		
+   	   </action>
+   	    <action name="manufacturerdel" class="org.shu.action.ManufacturerAction" method="manufacturerDel">
+	   		<result name="success">/material/material_manufacture.jsp</result>	
+	   		<result name="error">/material/material_manufacture_error.jsp</result>   		
+   	   </action>
+   	   
+   	   <action name="steelRaw" class="org.shu.action.SteelRawAction">
+	   		<result name="success">/material/material_steel.jsp</result>	   		
+   	   </action>
+   	    <action name="concQual" class="org.shu.action.ConcQualAction">
+	   		<result name="success">/material/material_concrete.jsp</result>	   		
+   	   </action>
+   	   <action name="concMixRatio" class="org.shu.action.ConcMixRatioAction">
+	   		<result name="success">/material/material_concrete.jsp</result>	   		
+   	   </action>
+   	    <action name="preEmbed" class="org.shu.action.PreEmbedAction">
+	   		<result name="success">/material/material_preEmbed.jsp</result>	   		
+   	   </action>
+   	    <action name="scan" class="org.shu.action.RfidRefGpAction" method="addRFID">
+	   		<result name="success">/material/material_chip.jsp</result>	   		
+   	   </action>
+   	    <action name="replace" class="org.shu.action.RfidRefGpAction" method="replaceRFID">
+	   		<result name="success">/material/material_chip.jsp</result>	   		
+   	   </action>
+   	    <action name="scrap" class="org.shu.action.GpTotalInfoAction" method="scrap">
+	   		<result name="success">/product/GPscrap.jsp</result>	   		
+   	   </action>
+   	    <action name="concResistComp" class="org.shu.action.ConcResistCompAction">
+	   		<result name="success">/product/dailywork.jsp</result>	   		
+   	   </action>
+   	    <action name="concResistLeak" class="org.shu.action.ConcResistLeakAction">
+	   		<result name="success">/product/dailywork.jsp</result>	   		
+   	   </action>
+   	   <action name="gpCrane" class="org.shu.action.GpCraneAction">
+	   		<result name="success">/product/dailywork.jsp</result>	   		
+   	   </action>
+   	    <action name="queryRFID" class="org.shu.action.RfidRefGpAction" method="queryRFID">
+	   		<result name="success">/material/search_chip.jsp</result>	
+   	   </action>
+   	   <action name="queryGp" class="org.shu.action.GpTotalInfoAction" method="queryGp">
+	   		<result name="success">/product/search_Gp.jsp</result>	
+   	   </action>
+   	   <action name="gpStatus" class="org.shu.action.GpTotalInfoAction" method="showDataGrid">
+	   		<result name="success">/product/table.jsp</result>	
+   	   </action>
+	</package>
+	<package name="default" namespace="/admin" extends="struts-default">
+		<!-- =========================测试================= -->
+		<!-- ========================用户管理================ -->	
+		<action name="adduser" class="org.shu.admin.action.UserAction" method="addUser">
+			<result name="success">/admin/usermanage.jsp</result>
+		</action>
+		<action name="edituser" class="org.shu.admin.action.UserAction" method="editUser">
+		<result name="success">/admin/usermanage_info.jsp</result>
+		</action>
+		<action name="deluser"  class="org.shu.admin.action.UserAction" method="delUser">
+		</action>
+		<action name="updateuser" class="org.shu.admin.action.UserAction" method="updateUser">
+			<result name="success">/admin/usermanage.jsp</result>
+		</action>
+		<!-- ========================用户管理结束================ -->
+		
+		<!-- ========================菜单管理================ -->
+		<action name="addmenu" class="org.shu.action.AdminAction"
+		    method="addMenu">
+			<result name="success">/admin/menumanage.jsp</result>
+		</action>
+		<!-- ========================菜单管理结束================ -->
+		
+		<!-- ========================角色管理================ -->
+		<action name="addRole" class="org.shu.action.RoleInfoAction"
+		    method="addRole">
+			<result name="success">/admin/authoritymanagement.jsp</result>
+		</action>
+		
+		<action name="adddept" class="org.shu.admin.action.DepartmentAction" method="addDept">
+			<result name="success">/admin/deptmanage.jsp</result>
+		</action>
+		<action name="editdept" class="org.shu.admin.action.DepartmentAction" method="editDept">
+		<result name="success">/admin/deptmanage_info.jsp</result>
+		</action>
+		<action name="deldept"  class="org.shu.admin.action.DepartmentAction" method="delDept">
+		</action>
+		<action name="updatedept" class="org.shu.admin.action.DepartmentAction" method="updateDept">
+			<result name="success">/admin/deptmanage.jsp</result>
+		</action>
+		<!-- ========================部门管理结束================ -->
+		</package>
+		<package name="plan" namespace="/plan" extends="struts-default">
+		<!-- ========================计划管理================ -->
+		<action name="addplan" class="org.shu.plan.action.PlanAction" method="addPlan">
+			<result name="success">/plan/z_planedit.jsp</result>
+		</action>
+		<action name="editplan" class="org.shu.plan.action.PlanAction" method="editPlan">
+		<result name="success">/plan/plan_info.jsp</result>
+		</action>
+		<action name="delplan"  class="org.shu.plan.action.PlanAction" method="delPlan">
+		</action>
+		<action name="updateplan" class="org.shu.plan.action.PlanAction" method="updatePlan">
+			<result name="success">/plan/z_planedit.jsp</result>
+		</action>
+		<action name="plansearch" class="org.shu.plan.action.PlanAction" method="planSearch">
+			<result name="success">/plan/search_result.jsp</result>
+		</action>
+		</package>
+		<!-- ========================计划管理结束================ -->
+		
+		<package name="file" namespace="/file" extends="struts-default">
+		<action name="steelsearch" class="org.shu.plan.action.ShowMaterialAction"
+			method="steelSearch">
+			<result name="success">/file/steelsearch.jsp</result>
+		</action>
+		<action name="transportsearch" class="org.shu.plan.action.ShowTransportAction"
+			method="chuchangSearch">
+			<result name="str1">/file/gpQuality.jsp</result>
+			<result name="str2">/file/gpReceive.jsp</result>
+			<result name="str3">/file/gpStorage.jsp</result>
+		</action>
+		
+		
+		<action name="steelquality" class="org.shu.plan.action.ShowMaterialAction"
+			method="steelQuality">
+			<result name="success">/file/steelqual.jsp</result>
+		</action>
+		
+		<action name="concquality" class="org.shu.plan.action.ShowMaterialAction"
+			method="concQuality">
+			<result name="success">/file/concqual.jsp</result>
+		</action>
+		<action name="concretematch" class="org.shu.plan.action.ShowMaterialAction"
+			method="concMixRatio">
+			<result name="success">/file/concmixratio.jsp</result>
+		</action>
+		
+		<action name="embedquality" class="org.shu.plan.action.ShowMaterialAction"
+			method="embedQuality">
+			<result name="success">/file/embedQuality.jsp</result>
+		</action>
+		<!-- ========================生产过程管理================ -->
+		<action name="productsearch" class="org.shu.plan.action.ShowProductAction"
+			method="productSearch">
+			<result name="str1">/file/gangjinjiagong.jsp</result>
+			<result name="str2">/file/gujiazhizuo.jsp</result>
+			<result name="str3">/file/hntjiaozhu.jsp</result>
+			<result name="str4">/file/gpsteam.jsp</result>
+			<result name="str5">/file/gpcrane.jsp</result>
+			<result name="str6">/file/gpwater.jsp</result>
+		</action>
+		
+		<action name="checksearch" class="org.shu.plan.action.ShowCheckAction"
+			method="checkSearch">
+			<result name="str1">/file/hntkangya.jsp</result>
+			<result name="str2">/file/hntkangshen.jsp</result>
+			<result name="str3">/file/steelhalf.jsp</result>
+			<result name="str4">/file/modelqual.jsp</result>
+			<result name="str5">/file/gpapp.jsp</result>
+			<result name="str6">/file/gpassemble.jsp</result>
+			<result name="str7">/file/gpjianlou.jsp</result>
+		</action>	
+		<!-- =========================测试结束================= -->
+	</package>
+</struts>
+
