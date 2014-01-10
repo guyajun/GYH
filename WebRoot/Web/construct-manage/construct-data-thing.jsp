@@ -1,15 +1,32 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>施工端数据展示</title>
-	<link href="../bootstrap-3.0.0/css/bootstrap.css" rel="stylesheet">
-	<link href="../bootstrap-3.0.0/css/bootstrap-datetimepicker.css" rel="stylesheet">
-	<link href="../bootstrap-3.0.0/css/sticky-footer-navbar.css" rel="stylesheet"></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>施工端数据展示</title>
+<link href="/GP//bootstrap-3.0.0/css/bootstrap.css" rel="stylesheet">
+<link href="/GP/bootstrap-3.0.0/css/bootstrap-datetimepicker.css"
+	rel="stylesheet">
+<link href="/GP/bootstrap-3.0.0/css/sticky-footer-navbar.css"
+	rel="stylesheet">
+<link href="/GP/Web/bootstrap-3.0.0/css/bootstrap.css" rel="stylesheet">
+<link href="/GP/Web/bootstrap-3.0.0/css/bootstrap-datetimepicker.css"
+	rel="stylesheet">
+<link href="/GP/Web/bootstrap-3.0.0/css/sticky-footer-navbar.css"
+	rel="stylesheet">
+<script src="/GP/Web/bootstrap-3.0.0/js/jquery-1.9.1.js"></script>
+<script src="/GP/Web/bootstrap-3.0.0/js/jquery.validate.js"></script>
+<script src="/GP/Web/bootstrap-3.0.0/js/bootstrap.js"></script>
+<script src="/GP/Web/bootstrap-3.0.0/js/bootbox.js"></script>
+<script src="/GP/Web/bootstrap-3.0.0/js/moment.min.js"></script>
+<script src="/GP/Web/bootstrap-3.0.0/js/bootstrap-datetimepicker.js"></script>
+<script src="/GP/Web/construct-manage/construct-data-advance.js"></script>
+</head>
 <body>
 	<div id="wrap">
 		<iframe src="/GP/construct-web/menu.action" width="100%" height="160px"></iframe>
@@ -19,13 +36,23 @@
 					<div class="panel-heading">查询事项</div>
 					<div class="panel-body">
 						<div class="well">
-							<iframe src="../query-items.jsp" height="40" frameborder="0" scrolling="no" width="100%"
-						marginheight="0" marginwidth="0"></iframe>
+							<a id="a-mud" href="/GP/construct-web/soil.action"
+								class="btn btn-danger">剖面位置/土质图</a> <a id="a-facility"
+								href="/GP/construct-web/facility.action" class="btn btn-primary">沿线重要设施</a>
+							<a id="a-measure" href="/GP/construct-web/measure.action"
+								class="btn btn-success">测点布置情况</a> <a id="a-advance"
+								href="/GP/construct-web/advance_getAllRecord.action"
+								class="btn btn-warning">盾构推进数据</a> <a id="a-pose"
+								href="/GP/construct-web/pose.action" class="btn btn-success ">盾构/管片姿态</a>
+							<a id="a-syn" href="/GP/construct-web/syn.action"
+								class="btn btn-primary">同步注浆数据</a> <a id="a-thing"
+								href="/GP/construct-web/thing.action"
+								class="btn btn-danger btn-lg">施工大事记录</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="div-thing" class="row hide  ">
+			<div id="div-thing" class="row   ">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title">施工大事信息</h3>
@@ -33,35 +60,82 @@
 					<div class="panel-body">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">查询</button>
-							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-								<span class="sr-only">Toggle Dropdown</span>
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="caret"></span> <span class="sr-only">Toggle
+									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="#" data-toggle="modal" data-target="#modal-thing-date">按时间查询</a>
-								</li>
-								<li>
-									<a href="#" data-toggle="modal" data-target="#modal-thing-loop">按环号查询</a>
+								<li><a href="#" data-toggle="modal"
+									data-target="#modal-thing-date">按时间查询</a></li>
+								<li><a href="#" data-toggle="modal"
+									data-target="#modal-thing-loop">按环号查询</a></li>
+							</ul>
+						</div>
+						
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary">EXCEL导出</button>
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="caret"></span> <span class="sr-only">Toggle
+									Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a id="excel-all" href="#" data-toggle="modal"
+									data-target="#modal-total">导出全部记录</a>
 								</li>
 							</ul>
 						</div>
-						<button type="button" class="btn btn-primary">生成报表</button>
-						<button type="button" class="btn btn-primary">导出EXCEL</button>
+						<div class="modal fade" id="modal-total">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">导出所有记录</h4>
+									</div>
+									<div class="modal-body">
+										<div class="row">
+											<form id="form-total" method="post"
+												action="/GP/construct-web/excelAll7.action"
+												class="form-inline" role="form">
+												<div class="form-group col-sm-9">
+													<label class="col-sm-6 control-label" for="excelPath">请输入EXCEL导出路径：</label>
+													<div class="col-sm-6">
+														<input id="excelPath" name="excelPath" value="d:/施工大事信息.xls"
+															type="text" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<button type="submit" class="btn btn-success">导出</button>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">关闭</button>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="modal fade" id="modal-thing-date">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
 										<h4 class="modal-title" id="myModalLabel">施工大事信息</h4>
 									</div>
 									<div class="modal-body">
-										<form class="form-inline" role="form">
+										<form class="form-inline" role="form" method="post"
+										action="/GP/construct-web/thingDate.action">
 											<div class="form-group col-sm-8">
 												<label class="col-sm-5 control-label" for="input-start-date">推进日期：</label>
 												<div class="col-sm-7 input-group start-date">
-													<input id="input-start-date" type="text" class="form-control">
-													<span class="input-group-addon glyphicon glyphicon-calendar"></span>
+													<input id="input-start-date" type="text" name="date"
+														class="form-control"> <span
+														class="input-group-addon glyphicon glyphicon-calendar"></span>
 												</div>
 											</div>
 											<div class="col-sm-4">
@@ -70,7 +144,8 @@
 										</form>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
 									</div>
 								</div>
 							</div>
@@ -79,7 +154,8 @@
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
 										<h4 class="modal-title" id="myModalLabel">施工大事信息</h4>
 									</div>
 									<div class="modal-body">
@@ -87,53 +163,134 @@
 											<div class="form-group col-sm-8">
 												<label class="col-sm-5 control-label" for="input-start-date">环号：</label>
 												<div class="col-sm-7 input-group">
-													<input id="input-start-date" type="text" class="form-control"></div>
+													<input id="input-start-date" type="text"
+														class="form-control">
+												</div>
 											</div>
 											<div class="col-sm-4">
 												<button type="submit" class="btn btn-success">查询</button>
 											</div>
 										</form>
 									</div>
+
+
 									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<table class="table">
+						<div class="modal fade" id="modal-detail">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">土质信息</h4>
+									</div>
+
+
+									<div class="modal-body">
+										<table class="table">
+											<tbody>
+												<tr>
+													<td>索引</td>
+													<td id="index1"></td>
+												</tr>
+												<tr>
+													<td>日期</td>
+													<td id="a"></td>
+												</tr>
+												<tr>
+													<td>主题</td>
+													<td id="b"></td>
+												</tr>
+												<tr>
+													<td>详细描述</td>
+													<td id="c"></td>
+												</tr>
+												<tr>
+													<td>负责人</td>
+													<td id="d"></td>
+												</tr>
+
+												<tr>
+													<td>isEast</td>
+													<td id="u"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<table class="table table-condensed table-hover table-responsive">
 							<tbody>
 								<tr>
-									<td>环号</td>
-									<td>时间</td>
-									<td>横径左</td>
-									<td>横径右</td>
-									<td>横径左+右</td>
-									<td>竖径上</td>
-									<td>竖径下</td>
-									<td>竖径上+下</td>
-									<td>横径差值</td>
-									<td>备注(盾尾变形)</td>
-									<td>突发事件</td>
-									<td>原因(突发事件)</td>
-									<td>拌浆量</td>
-									<td>数量</td>
+									<td>索引</td>
+									<td>日期</td>
+									<td>主题</td>
+									<td>详细描述</td>
+									<td>负责人</td>
+									<td>东西线</td>
+									<td>操作</td>
 								</tr>
+								<s:iterator value="#request.sgdsList" id="sgds">
+									<tr>
+										<td id="index"><s:property value="#sgds.dsIndx" /></td>
+										<td id="aa"><s:property value="#sgds.dsDate" /></td>
+										<td id="bb"><s:property value="#sgds.dsTitl" /></td>
+										<td id="cc"><s:property value="#sgds.dsDspt" /></td>
+										<td id="dd"><s:property value="#sgds.dsPzr" /></td>
+										<td id="uu"><s:property value="#sgds.isEast" /></td>
+
+										<td><a id="detail" class="btn-detail" href="#">详细</a></td>
+
+									</tr>
+								</s:iterator>
 							</tbody>
 						</table>
+						<div class="well">
+							<div class="col-sm-offset-4">
+								<s:set name="page" value="#request.pager"></s:set>
+								<form id="form-page" method="get"
+									action="/GP/construct-web/thing.action">
+									<input id="input-page" name="pageNow" style="width:30px;"
+										value="<s:property value="#page.pageNow"/>"> /
+									<s:property value="#page.totalPage" />
+									<s:if test="#page.hasFirst">
+										<s:a target="_parent" href="thing.action?pageNow=1">首页</s:a>
+									</s:if>
+									<s:if test="#page.hasPre">
+										<a target="_parent"
+											href="thing.action?pageNow=<s:property value="#page.pageNow-1"/>
+									">上一页
+										</a>
+									</s:if>
+									<s:if test="#page.hasNext">
+										<a target="_parent"
+											href="thing.action?pageNow=<s:property value="#page.pageNow+1"/>
+								">下一页
+										</a>
+									</s:if>
+									<s:if test="#page.hasLast">
+										<a target="_parent"
+											href="thing.action?pageNow=<s:property value="#page.totalPage"/>
+							">尾页
+										</a>
+									</s:if>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="footer">
-			<iframe src="../footer.jsp" class="col-md-12" frameborder="0" scrolling="no" height="60"
-						marginheight="0" marginwidth="0"></iframe>
+		<iframe src="/GP/Web/footer.jsp" class="col-md-12" frameborder="0"
+			scrolling="no" height="60" marginheight="0" marginwidth="0"></iframe>
 	</div>
-	<script src="../bootstrap-3.0.0/js/jquery-1.9.1.js"></script>
-	<script src="../bootstrap-3.0.0/js/jquery.validate.js"></script>
-	<script src="../bootstrap-3.0.0/js/bootstrap.js"></script>
-	<script src="../bootstrap-3.0.0/js/moment.min.js"></script>
-	<script src="../bootstrap-3.0.0/js/bootstrap-datetimepicker.js"></script>
-	<script src="./construct-data.js"></script>
 </body>
 </html>

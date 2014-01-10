@@ -88,6 +88,58 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 				<value>org/shu/model/GpTotalInfo.hbm.xml</value></list>
 		</property>
 	</bean>
+	
+	<bean id="poseService" class="org.shu.construct.service.ShieldPoseService">
+		<property name="poseDao">
+			<ref bean="poseDao" />
+		</property>
+	</bean>
+	<bean id="poseDao" class="org.shu.construct.dao.PoseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+    <bean id="shieldService" class="org.shu.construct.service.ShieldPoseService">
+		<property name="poseDao">
+			<ref bean="poseDao" />
+		</property>
+	</bean>	
+    <bean id="synService" class="org.shu.construct.service.SynService">
+		<property name="synDao">
+			<ref bean="synDao" />
+		</property>
+	</bean>
+	
+	<bean id="synDao" class="org.shu.construct.dao.SynDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	
+	
+	<bean id="sgdsService" class="org.shu.construct.service.GpSgdsService">
+		<property name="sgdsDao">
+			<ref bean="sgdsDao" />
+		</property>
+	</bean>
+	<bean id="sgdsDao" class="org.shu.construct.dao.SgdsDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+		<bean id="measureService" class="org.shu.construct.service.GpMeasurepointService">
+		<property name="measureDao">
+			<ref bean="measureDao" />
+		</property>
+	</bean>
+	<bean id="measureDao" class="org.shu.construct.dao.MeasureDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+    <bean id="sheshiService" class="org.shu.construct.service.GpAlongsheshiService">
+		<property name="sheshiDao">
+			<ref bean="sheshiDao" />
+		</property>
+	</bean>
+	<bean id="sheshiDao" class="org.shu.construct.dao.SheshiDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<bean id="authorityDao" class="org.shu.construct.dao.AuthorityDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -136,14 +188,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 			<ref bean="totalDao" />
 		</property>
 	</bean>
-	<bean id="poseDao" class="org.shu.construct.dao.PoseDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="poseService" class="org.shu.construct.service.PoseService">
-		<property name="poseDao">
-			<ref bean="poseDao" />
-		</property>
-	</bean>
+	
 		<bean id="xunJianDao" class="org.shu.construct.dao.XunJianDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -536,20 +581,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="boldDAO" class="org.shu.construct.dao.BoltQualityDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="poseDAO" class="org.shu.construct.dao.PoseDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="shieldDAO" class="org.shu.construct.dao.ShieldDAO">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="synService" class="org.shu.construct.service.SynService">
-		<property name="synDao">
-			<ref bean="synDao" />
-		</property>
-	</bean>
-	<bean id="synDao" class="org.shu.construct.dao.SynDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+	
+	
 	<bean id="waterProofDAO" class="org.shu.construct.dao.WaterProofDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -558,11 +591,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		<property name="boldDAO">
 			<ref bean="boldDAO" />
 		</property>
-		<property name="poseDAO">
-			<ref bean="poseDAO" />
-		</property>
-		<property name="shieldDAO">
-			<ref bean="shieldDAO" />
+		<property name="poseDao">
+			<ref bean="poseDao" />
 		</property>
 		<property name="synDao">
 			<ref bean="synDao" />

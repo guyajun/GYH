@@ -14,16 +14,11 @@ public class ConstructService {
 	
 	private WaterProofDao waterProofDAO;
 	private BoltQualityDAO boldDAO;
-	private ShieldDAO shieldDAO;
+	private ShieldDAO shieldDao;
 	private SynDao synDao;
-	private PoseDao poseDAO;
-	
-	public PoseDao getPoseDAO() {
-		return poseDAO;
-	}
-
-	public void setPoseDAO(PoseDao poseDAO) {
-		this.poseDAO = poseDAO;
+	private PoseDao poseDao;
+	public void setPoseDao(PoseDao poseDao) {
+		this.poseDao = poseDao;
 	}
 
 	public WaterProofDao getWaterProofDAO() {
@@ -41,17 +36,12 @@ public class ConstructService {
 	public void setBoldDAO(BoltQualityDAO boldDAO) {
 		this.boldDAO = boldDAO;
 	}
-
-	public ShieldDAO getShieldDAO() {
-		return shieldDAO;
+	
+    public void setShieldDao(ShieldDAO shieldDao) {
+		this.shieldDao = shieldDao;
 	}
 
-	public void setShieldDAO(ShieldDAO shieldDAO) {
-		this.shieldDAO = shieldDAO;
-	}
-	
-	
-    public void setSynDao(SynDao synDao) {
+	public void setSynDao(SynDao synDao) {
         this.synDao = synDao;
     }
 
@@ -75,11 +65,11 @@ public class ConstructService {
 	
 	public List shieldSearch()
 	{
-		return shieldDAO.shieldSearch();
+		return shieldDao.shieldSearch();
 	}
 	
 	public List shieldSearch(String reportId) {
-		return shieldDAO.shieldSearch(reportId);
+		return shieldDao.shieldSearch(reportId);
 	}
 	
 	public List synSearch()
