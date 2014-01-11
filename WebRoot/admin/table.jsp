@@ -26,7 +26,7 @@
 			<td><s:property value="#proInfo.constructUnit"/></td>		
 			<td><a target="_parent"  href="findProInfo.action?proInfo.id=<s:property value="#proInfo.id"/>">详细信息(可修改)</a> </td>	
 			
-			<td> <a target="_parent"  href="deleteProInfo.action?proInfo.id=<s:property value="#proInfo.id"/>" onClick="if(!confirm('删除该项目将删除其所有子项目，确定删除吗？'))return false;else return true;">删除</a> </td>		
+			<td> <a target="_parent"  href="deleteProInfo.action?proInfo.id=<s:property value="#proInfo.id"/>" onClick="if(!confirm('删除该项目将删除其所有子项目，确定删除吗？'))">删除</a> </td>		
 		</tr>		
 		</s:iterator>
 		
