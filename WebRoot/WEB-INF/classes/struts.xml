@@ -14,7 +14,7 @@
 			<result name="error">/Web/admin-manage/login.jsp</result>
 		</action>	
 		<action name="editAuthority" class="org.shu.construct.action.AuthorityAction" method="saveRight">
-			<result name="success">/Web/admin-manage/role.jsp</result>
+			<result type="redirectAction">allRole</result>
 		</action>
 		<action name="allRole" class="org.shu.action.RoleInfoAction" method="getAll">
 			<result name="success">/Web/admin-manage/role.jsp</result>
