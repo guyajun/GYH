@@ -7,39 +7,19 @@ $(function(){
 	});	
 
 $('#saveBtn').on('click',function(){
-	alert('here');
-	$('#authoritytree').tree({
-		checkbox:true,
-		onCheck:function(node,checked)
-		{			
-			var roleId = $('#roleId').val();
-			alert(roleId);
-			$.ajax({
-				type:'post',
-				url:'/GP/admin1/EditAurhotiry.action?roleId='+roleId+'&checked='+checked+'&nodeId='+node.id,
-				dataType:'JSON',
-				success:function(data){alert(data);}
-			});
-		}
-	});
+	var nodes = $('#authoritytree').tree('getChecked', 'checked');	
+	var str="";
+	for(var i=0;i<nodes.length;i++){
+		str+=nodes[i].id+",";
+	}
+	$('#menuIds').val(str);
+	$('#form-authority').submit();
 });
 function modulestree(data)
 {
 	$('#authoritytree').tree({
 		checkbox:true,
-		data:data.modulesTree,
-//		onCheck:function(node,checked)
-//		{
-//			var treeposition = $('#authoritytree').position().left;
-//			var roleId = $('#roleId').val();
-//			$.ajax({
-//				type:'post',
-//				url:'EditAurhotiry.action',
-//				data:"roleId="+roleId+"&checked="+checked+"&nodeId="+node.id,
-//				dataType:'text',
-//				success:function(data){}
-//			});
-//		}
+		data:data.modulesTree
 	});
 	loadtreedata($('#roleId').val());
 }

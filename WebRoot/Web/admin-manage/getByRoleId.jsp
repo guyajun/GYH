@@ -29,26 +29,29 @@
 				<div class="col-sm-12">
 					<div class="panel panel-info" style="height:800px;">
 						<div class="panel-heading">
-							<h3 class="panel-title">详细内容</h3>
+							<h3 class="panel-title">权限分配</h3>
 						</div>
 						<div class="panel-body">
-							<form id="form-authority" method="post" action="/GP/system/editAuthority.action">
+							<form id="form-authority" class="hide" method="post" action="/GP/system/editAuthority.action">
 								<input id="roleId" value="<s:property value="#request.roleId1"/>" name="roleId" type='text'>
 								<input id="menuIds" name="menuIds" type="text">
-								<input id="checkedIds" value="<s:property value="#request.str"/>" type="text">
 							</form>
 							<div class="container">
 								<div class="row">
-								<div class="">
-							  <ul id="authoritytree" style="overflow:scroll;" ></ul>
-							  </div>
+								<div>
+									<button type="button" class="btn btn-danger btn-lg btn-block"><s:property value="#request.roleName"/></button>
+									
+								</div>
+								<div class="col-sm-offset-5">
+								  	<ul id="authoritytree"></ul>
+								 </div>
+								 <button id="saveBtn" type="button" class="btn btn-success btn-lg btn-block">保存</button>
 							  </div>
 							</div>
-							<button id="saveBtn" type="button" class="btn btn-success">保存</button>
 						</div>
 					</div>
 				</div>
-				<div class="modal fade" id="modal-right">
+			<!-- 	<div class="modal fade" id="modal-right">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -95,7 +98,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="hide col-sm-7">
 					<div class="panel panel-info"  style="height:600px;">
 						<div class="panel-heading">

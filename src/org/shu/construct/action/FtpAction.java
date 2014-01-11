@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -107,41 +108,19 @@ public class FtpAction extends BaseAction {
         }
         return SUCCESS;
     } 
-	public String getAllFtpFolders() {
-        FTPClient ftpClient = new FTPClient(); 
-        FileInputStream fis = null; 
-        try { 
-            ftpClient.connect("111.186.106.171"); 
-            ftpClient.login("bofeng.zhang", "ZBF917ZGB919cs");
-            FTPFile[] files=ftpClient.listFiles("/bofeng.zhang");
-            System.out.println("files.length="+files.length);
-            ArrayList<String> dadList=new ArrayList<String>();
-            HashMap<String,ArrayList> map=new HashMap<String,ArrayList>();
-            for(int j=0;j<files.length;j++){
-            	dadList.add(files[j].getName());
-            	FTPFile[] sonFiles=ftpClient.listFiles("/bofeng.zhang/"+files[j].getName());
-            	ArrayList<String> sonList=new ArrayList<String>();
-            	for(int i=0;i<sonFiles.length;i++){
-            		sonList.add(sonFiles[i].getName());
-            	}
-            	map.put(files[j].getName(), sonList);
-            }                  
-
-            Map request = (Map) ActionContext.getContext().get("request");
-    		request.put("map", map);
-    		request.put("dadList", dadList);
-        } catch (IOException e) { 
-            e.printStackTrace(); 
-            throw new RuntimeException("FTP客户端出错！", e); 
-        } finally { 
-            IOUtils.closeQuietly(fis); 
-            try { 
-                ftpClient.disconnect(); 
-            } catch (IOException e) { 
-                e.printStackTrace(); 
-                throw new RuntimeException("关闭FTP连接发生异常！", e); 
-            } 
-        }
+	public String getAllFtpFolders() throws Exception, IOException {
+        FTPClient ftpClient = new FTPClient();
+        ftpClient.connect("111.186.106.171"); 
+        ftpClient.login("bofeng.zhang", "ZBF917ZGB919cs");
+        FTPFile[] files=ftpClient.listFiles("/bofeng.zhang");
+        System.out.println("files.length="+files.length);
+        ArrayList<String> dadList=new ArrayList<String>();
+        for(int j=0;j<files.length;j++){
+        	dadList.add(files[j].getName());            	
+        }                  
+        Map request = (Map) ActionContext.getContext().get("request");
+		request.put("dadList", dadList);
+        ftpClient.disconnect();
         return SUCCESS;
     } 
 	public String upload() {

@@ -7,13 +7,14 @@
 	<include file="struts-default.xml" />
 	<!-- ====================施工端===================== -->
 	<package name="system" namespace="/system" extends="struts-default">
+	
 		<action name="constructLogin" class="org.shu.admin.action.SystemAction"
 			method="constructLogin">
 			<result name="success">/Web/index.jsp</result>
 			<result name="error">/Web/admin-manage/login.jsp</result>
 		</action>	
 		<action name="editAuthority" class="org.shu.construct.action.AuthorityAction" method="saveRight">
-			<result name="success">/Web/admin-manage/role.jsp</result>
+			<result type="redirectAction">allRole</result>
 		</action>
 		<action name="allRole" class="org.shu.action.RoleInfoAction" method="getAll">
 			<result name="success">/Web/admin-manage/role.jsp</result>
@@ -32,6 +33,134 @@
 		</action>
 	</package>
 	<package name="web" namespace="/construct-web" extends="struts-default">
+	<action name="pose" class="org.shu.construct.action.ShieldPoseAction"
+			method="pose">
+			<result name="success">/Web/construct-manage/construct-data-pose.jsp
+			</result>
+			<result name="input">/Web/construct-manage/construct-data-pose.jsp
+			</result>
+		</action>
+		<action name="getposeBytunnelLoop" class="org.shu.construct.action.ShieldPoseAction"
+			method="getBytunnelLoop">
+			<result name="success">/Web/construct-manage/construct-data-pose.jsp
+			</result>
+		</action>
+		<action name="number" class="org.shu.construct.action.ShieldPoseAction"
+			method="getByposenumber">
+			<result name="success">/Web/construct-manage/construct-data-pose.jsp
+			</result>
+		</action>
+		<action name="excelAll5" class="org.shu.construct.action.ShieldPoseAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">pose</result>
+		</action>
+		<action name="excelShieldPose" class="org.shu.construct.action.ShieldPoseAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">pose</result>
+		</action>
+		<action name="Shield_*" class="org.shu.construct.action.ShieldPoseAction"
+			method="{1}">
+			<result name="success">/Web/construct-manage/construct-data-facility.jsp
+			</result>
+		</action>
+		<action name="syn" class="org.shu.construct.action.SynGroutAction"
+			method="syn">
+			<result name="success">/Web/construct-manage/construct-data-syn.jsp
+			</result>
+			<result name="input">/Web/construct-manage/construct-data-syn.jsp
+			</result>
+		</action>
+		<action name="draw6" class="org.shu.construct.action.TimeSeriesChart6"
+			method="getTimeSeriesChart">
+			<result name="success">/Web/construct-manage/construct-data-syn-curve.jsp
+			</result>
+		</action>
+		<action name="syndate" class="org.shu.construct.action.SynGroutAction"
+			method="getByDate">
+			<result name="success">/Web/construct-manage/construct-data-syn.jsp
+			</result>
+		</action>
+		<action name="synLoop" class="org.shu.construct.action.SynGroutAction"
+			method="getBytunnelLoop">
+			<result name="success">/Web/construct-manage/construct-data-syn.jsp
+			</result>
+		</action>
+		<action name="excelAll6" class="org.shu.construct.action.SynGroutAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">syn</result>
+		</action>
+		<action name="facility" class="org.shu.construct.action.GpAlongsheshiAction"
+			method="sheshi">
+			<result name="success">/Web/construct-manage/construct-data-facility.jsp
+			</result>
+			<result name="input">/Web/construct-manage/construct-data-facility.jsp
+			</result>
+		</action>
+		<action name="sheshiDengji" class="org.shu.construct.action.GpAlongsheshiAction"
+			method="getByssIndx">
+			<result name="success">/Web/construct-manage/construct-data-facility.jsp
+			</result>
+		</action>
+		
+		<action name="excelAll2" class="org.shu.construct.action.GpAlongsheshiAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">facility</result>
+		</action>
+		<action name="excelGpAlongsheshi" class="org.shu.construct.action.GpAlongsheshiAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">facility</result>
+		</action>
+		<action name="gpAlong_*" class="org.shu.construct.action.GpAlongsheshiAction"
+			method="{1}">
+			<result name="success">/Web/construct-manage/construct-data-facility.jsp
+			</result>
+		</action>
+		<action name="thing" class="org.shu.construct.action.GpSgdsAction"
+			method="sgds">
+			<result name="success">/Web/construct-manage/construct-data-thing.jsp
+			</result>
+			<result name="input">/Web/construct-manage/construct-data-thing.jsp
+			</result>
+		</action>
+		<action name="thingDate" class="org.shu.construct.action.GpSgdsAction"
+			method="getByDate">
+			<result name="success">/Web/construct-manage/construct-data-thing.jsp
+			</result>
+		</action>
+		<action name="excelAll7" class="org.shu.construct.action.GpSgdsAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">thing</result>
+		</action>
+		<action name="measure" class="org.shu.construct.action.GpMeasurepointAction"
+			method="measure">
+			<result name="success">/Web/construct-manage/construct-data-measure.jsp
+			</result>
+			<result name="input">/Web/construct-manage/construct-data-measure.jsp
+			</result>
+		</action>
+		<action name="excelAll3" class="org.shu.construct.action.GpMeasurepointAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">measure</result>
+		</action>
+		<action name="excelMeasurepoint" class="org.shu.construct.action.GpMeasurepointAction"
+			method="exportExcel">
+			<result name="success" type="redirectAction">measure</result>
+		</action>
+		<action name="measure_*" class="org.shu.construct.action.GpMeasurepointAction"
+			method="{1}">
+			<result name="success">/Web/construct-manage/construct-data-measure.jsp
+			</result>
+		</action>
+		<action name="indx" class="org.shu.construct.action.GpMeasurepointAction"
+			method="getByCbIndx">
+			<result name="success">/Web/construct-manage/construct-data-measure.jsp
+			</result>
+		</action>
+		<action name="cedian" class="org.shu.construct.action.GpMeasurepointAction"
+			method="getByCdno">
+			<result name="success">/Web/construct-manage/construct-data-measure.jsp
+			</result>
+		</action>
 		<action name="ftpUpload" class="org.shu.construct.action.FtpAction" method="upload">
 			<result name="success">/Web/gp-history/sonftp.jsp</result>
 		</action>
