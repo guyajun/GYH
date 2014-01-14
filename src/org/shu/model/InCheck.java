@@ -9,6 +9,7 @@ public class InCheck implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private Integer proId;
 	private String produceLoop;
 	private String condition;
 	private String photo;
@@ -25,9 +26,10 @@ public class InCheck implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public InCheck(String produceLoop, String condition, String photo,
-			String result, String creator, String createDate, Integer status,
-			Integer isEast) {
+	public InCheck(Integer proId, String produceLoop, String condition,
+			String photo, String result, String creator, String createDate,
+			Integer status, Integer isEast) {
+		this.proId = proId;
 		this.produceLoop = produceLoop;
 		this.condition = condition;
 		this.photo = photo;
@@ -46,6 +48,14 @@ public class InCheck implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public String getProduceLoop() {

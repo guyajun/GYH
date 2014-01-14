@@ -17,8 +17,8 @@ public class PzqService {
 	{		
 		return pzqDao.getAll();
 	}
-	public ArrayList<Pzqcheck> getByLoop(int loop)
+	public ArrayList<Pzqcheck> getByLoop(String produceLoop)
 	{		
-		return pzqDao.getByLoop(loop);
+		return pzqDao.getByLoop(produceLoop);
 	}	
 }

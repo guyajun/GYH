@@ -81,16 +81,16 @@ public class ConstructFileAction extends BaseAction {
 			return "str2";
 		}
 		// �ܹ��ƽ��̼�¼��
-		if (type.equals("1003")) {
-			if (reportId.length() == 0) {
-				steelsearch = constructService.shieldSearch();
-			} else {
-				steelsearch = constructService.shieldSearch(Id);
-			}
-			Map request = (Map) ActionContext.getContext().get("request");
-			request.put("steelsearch", steelsearch);
-			return "str3";
-		}
+//		if (type.equals("1003")) {
+//			if (reportId.length() == 0) {
+//				steelsearch = constructService.shieldSearch();
+//			} else {
+//				steelsearch = constructService.shieldSearch(Id);
+//			}
+//			Map request = (Map) ActionContext.getContext().get("request");
+//			request.put("steelsearch", steelsearch);
+//			return "str3";
+//		}
 		
 		// ͬ��ע����¼��
 				if (type.equals("1004")) {

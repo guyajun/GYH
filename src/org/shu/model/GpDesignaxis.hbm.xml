@@ -10,6 +10,9 @@
             <column name="ZX_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="zxStrg" type="java.lang.Integer">
             <column name="ZX_STRG" />
         </property>

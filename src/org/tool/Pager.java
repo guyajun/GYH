@@ -1,7 +1,7 @@
 package org.tool;
 public class Pager {
 	private int pageNow;
-	private int pageSize=8;
+	private int pageSize=10;
 	private int totalSize;
 	private int totalPage;
 	private boolean hasFirst;

@@ -10,9 +10,6 @@
             <column name="ID" />
             <generator class="native" />
         </id>
-        <many-to-one name="proInfo" class="org.shu.model.ProInfo" fetch="select">
-            <column name="PARENT_ID" />
-        </many-to-one>
         <property name="proCode" type="java.lang.String">
             <column name="PRO_CODE" />
         </property>
@@ -36,6 +33,9 @@
         </property>
         <property name="gkTllg" type="java.lang.Double">
             <column name="GK_TLLG" precision="53" scale="0" />
+        </property>
+        <property name="gkIndm" type="java.lang.Double">
+            <column name="GK_INDM" precision="53" scale="0" />
         </property>
         <property name="gkOtdm" type="java.lang.Double">
             <column name="GK_OTDM" precision="53" scale="0" />
@@ -91,71 +91,17 @@
         <property name="description" type="java.lang.String">
             <column name="DESCRIPTION" />
         </property>
-        <property name="directorId" type="java.lang.String">
-            <column name="DIRECTOR_ID" />
-        </property>
-        <property name="directorPhone" type="java.lang.String">
-            <column name="DIRECTOR_PHONE" />
-        </property>
-        <property name="levelOneId" type="java.lang.String">
-            <column name="LEVEL_ONE_ID" />
-        </property>
-        <property name="levelTwoId" type="java.lang.String">
-            <column name="LEVEL_TWO_ID" />
+        <property name="ringWidth" type="java.lang.String">
+            <column name="RingWidth" />
         </property>
         <property name="proStatus" type="java.lang.String">
             <column name="PRO_STATUS" />
         </property>
-        <property name="proBlock" type="java.lang.String">
-            <column name="PRO_BLOCK" />
-        </property>
-        <property name="importantPro" type="java.lang.String">
-            <column name="IMPORTANT_PRO" length="1" />
-        </property>
-        <property name="keyFocus" type="java.lang.String">
-            <column name="KEY_FOCUS" length="1" />
-        </property>
-        <property name="proClass" type="java.lang.String">
-            <column name="PRO_CLASS" />
-        </property>
-        <property name="provincePro" type="java.lang.String">
-            <column name="PROVINCE_PRO" length="1" />
-        </property>
-        <property name="url" type="java.lang.String">
-            <column name="URL" />
-        </property>
         <property name="produceUnit" type="java.lang.String">
             <column name="PRODUCE_UNIT" />
         </property>
-        <property name="buildUnit" type="java.lang.String">
-            <column name="BUILD_UNIT" />
-        </property>
-        <property name="designUnit" type="java.lang.String">
-            <column name="DESIGN_UNIT" />
-        </property>
-        <property name="manageUnit" type="java.lang.String">
-            <column name="MANAGE_UNIT" />
-        </property>
-        <property name="constructUnit" type="java.lang.String">
-            <column name="CONSTRUCT_UNIT" />
-        </property>
-        <property name="buildTime" type="java.sql.Timestamp">
-            <column name="BUILD_TIME" length="23" />
-        </property>
         <property name="completeTime" type="java.sql.Timestamp">
             <column name="COMPLETE_TIME" length="23" />
-        </property>
-        <property name="creatorId" type="java.lang.String">
-            <column name="CREATOR_ID" />
-        </property>
-        <property name="createTime" type="java.sql.Timestamp">
-            <column name="CREATE_TIME" length="23" />
-        </property>
-        <property name="modifierId" type="java.lang.String">
-            <column name="MODIFIER_ID" />
-        </property>
-        <property name="modifyTime" type="java.sql.Timestamp">
-            <column name="MODIFY_TIME" length="23" />
         </property>
         <property name="memo" type="java.lang.String">
             <column name="MEMO" />
@@ -163,12 +109,6 @@
         <property name="isEast" type="java.lang.Integer">
             <column name="IsEast" />
         </property>
-        <set name="proInfos" inverse="true">
-            <key>
-                <column name="PARENT_ID" />
-            </key>
-            <one-to-many class="org.shu.model.ProInfo" />
-        </set>
         <set name="concRcvds" inverse="true">
             <key>
                 <column name="Pro_id" />

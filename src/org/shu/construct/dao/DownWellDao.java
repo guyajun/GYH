@@ -15,9 +15,8 @@ public class DownWellDao extends GenericHibernateDao<DownWell, Integer> {
 		return list;
 	}
 
-	public ArrayList<DownWell> getByLoop(int loop) {
-		System.out.println("loop=" + loop);
-		String sql = "select * from DOWN_WELL where PRODUCE_LOOP ='-" + loop+"';";
+	public ArrayList<DownWell> getByLoop(String produceLoop) {
+		String sql = "select * from DOWN_WELL where PRODUCE_LOOP like '" + produceLoop+"__';";
 		ArrayList<DownWell> list = (ArrayList<DownWell>) this
 				.sqlFind(sql);
 		return list;

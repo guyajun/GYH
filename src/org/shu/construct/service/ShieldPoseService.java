@@ -9,7 +9,9 @@ import org.shu.model.ShieldPose;
 
 public class ShieldPoseService {
 	private PoseDao poseDao;
-
+	public void setPoseDao(PoseDao poseDao) {
+		this.poseDao = poseDao;
+	}
 	public ArrayList<ShieldPose> getShieldPose() {
 		return (ArrayList<ShieldPose>) poseDao.poseSearch();
 	}
@@ -17,15 +19,6 @@ public class ShieldPoseService {
 	public ArrayList<ShieldPose> getShieldPoseByPage(int pageNow, int pageSize) {
 		return poseDao.poseSearchByPage(pageNow, pageSize);
 	}
-
-	public PoseDao getPoseDao() {
-		return poseDao;
-	}
-
-	public void setPoseDao(PoseDao poseDao) {
-		this.poseDao = poseDao;
-	}
-
 	public ArrayList<ShieldPose> getAll() {
 		return poseDao.getAll();
 	}

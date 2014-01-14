@@ -2,6 +2,10 @@ package org.shu.model;
 
 import java.sql.Timestamp;
 
+/**
+ * Segmentrepair entity. @author MyEclipse Persistence Tools
+ */
+
 public class Segmentrepair implements java.io.Serializable {
 
 	// Fields

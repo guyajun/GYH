@@ -11,9 +11,8 @@ public class PzqDao extends GenericHibernateDao<Pzqcheck, Integer> {
 		return list;
 	}
 
-	public ArrayList<Pzqcheck> getByLoop(int loop) {
-		System.out.println("loop=" + loop);
-		String sql = "select * from PZQcheck where PRODUCE_LOOP ='-" + loop+"';";
+	public ArrayList<Pzqcheck> getByLoop(String produceLoop) {
+		String sql = "select * from PZQcheck where PRODUCE_LOOP like '" + produceLoop+"__';";
 		ArrayList<Pzqcheck> list = (ArrayList<Pzqcheck>) this
 				.sqlFind(sql);
 		return list;

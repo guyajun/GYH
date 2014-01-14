@@ -86,7 +86,7 @@
 				<div class="col-md-7">
 					<div class="panel panel-info">
 						<div class="panel-heading">
-							<h3 class="panel-title">新浪微博</h3>
+							<h3 class="panel-title">地理位置</h3>
 						</div>
 						<div class="panel-body">
 							<iframe class="col-md-12" height="540" frameborder="0" scrolling="no"

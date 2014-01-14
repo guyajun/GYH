@@ -9,6 +9,7 @@ public class GpDesignaxis implements java.io.Serializable {
 	// Fields
 
 	private Integer zxIndx;
+	private Integer proId;
 	private Integer zxStrg;
 	private Integer zxEndg;
 	private String zxStdt;
@@ -27,9 +28,10 @@ public class GpDesignaxis implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpDesignaxis(Integer zxStrg, Integer zxEndg, String zxStdt,
-			Double zxStdp, Double zxStcd, Double zxSlop, Double zxHrds,
-			Double zxVrds, Double zxElop, Integer isEast) {
+	public GpDesignaxis(Integer proId, Integer zxStrg, Integer zxEndg,
+			String zxStdt, Double zxStdp, Double zxStcd, Double zxSlop,
+			Double zxHrds, Double zxVrds, Double zxElop, Integer isEast) {
+		this.proId = proId;
 		this.zxStrg = zxStrg;
 		this.zxEndg = zxEndg;
 		this.zxStdt = zxStdt;
@@ -50,6 +52,14 @@ public class GpDesignaxis implements java.io.Serializable {
 
 	public void setZxIndx(Integer zxIndx) {
 		this.zxIndx = zxIndx;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public Integer getZxStrg() {

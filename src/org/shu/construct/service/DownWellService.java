@@ -19,8 +19,8 @@ public class DownWellService {
 	{		
 		return downWellDao.getAll();
 	}
-	public ArrayList<DownWell> getByLoop(int loop)
+	public ArrayList<DownWell> getByLoop(String produceLoop)
 	{		
-		return downWellDao.getByLoop(loop);
+		return downWellDao.getByLoop(produceLoop);
 	}	
 }

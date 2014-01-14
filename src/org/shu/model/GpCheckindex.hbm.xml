@@ -10,29 +10,26 @@
             <column name="TG_INDX" />
             <generator class="native" />
         </id>
-        <property name="tgGaocheng" type="java.lang.String">
-            <column name="TG_GAOCHENG" />
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
         </property>
-        <property name="tgPingmian" type="java.lang.String">
-            <column name="TG_PINGMIAN" />
+        <property name="tgGaocheng" type="java.lang.Double">
+            <column name="TG_GAOCHENG" precision="53" scale="0" />
         </property>
-        <property name="tgYxgc" type="java.lang.String">
-            <column name="TG_YXGC" />
+        <property name="tgPingmian" type="java.lang.Double">
+            <column name="TG_PINGMIAN" precision="53" scale="0" />
         </property>
-        <property name="tgHfzk" type="java.lang.String">
-            <column name="TG_HFZK" />
+        <property name="tgYxgc" type="java.lang.Double">
+            <column name="TG_YXGC" precision="53" scale="0" />
         </property>
-        <property name="tgZfzk" type="java.lang.String">
-            <column name="TG_ZFZK" />
+        <property name="tgHfzk" type="java.lang.Double">
+            <column name="TG_HFZK" precision="53" scale="0" />
         </property>
-        <property name="tgTyd" type="java.lang.String">
-            <column name="TG_TYD" />
+        <property name="tgZfzk" type="java.lang.Double">
+            <column name="TG_ZFZK" precision="53" scale="0" />
         </property>
-        <property name="tgSdgs" type="java.lang.Integer">
-            <column name="TG_SDGS" />
-        </property>
-        <property name="tgGxpcyxz" type="java.lang.Double">
-            <column name="TG_GXPCYXZ" precision="53" scale="0" />
+        <property name="tgTyd" type="java.lang.Double">
+            <column name="TG_TYD" precision="53" scale="0" />
         </property>
         <property name="tgDmcjlq" type="java.lang.Double">
             <column name="TG_DMCJLQ" precision="53" scale="0" />

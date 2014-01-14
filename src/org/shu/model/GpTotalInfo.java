@@ -9,33 +9,14 @@ public class GpTotalInfo implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private String gpId;
-	private Integer proId;
-	private String coverid;
-	private Integer produceLoop;
 	private Integer tunnelLoop;
-	private Integer tunnelLoopLocation;
-	private String type;
-	private String gpStatus;
-	private Integer workShift;
-	private String steelRawReportId;
-	private String steelQualReportId;
-	private String concResistCompReportId;
-	private String concMixRatioId;
-	private String concResistLeakId;
-	private String steelProcessReportId;
-	private String steelSkelHalfReportId;
-	private String steelSkelQualReportId;
-	private String gpAppeSizeReportId;
-	private String moldQualReportId;
-	private String concPourReportId;
-	private String gpSteamCuringId;
-	private String waterCuringReportId;
-	private String assemReportId;
-	private String checkLeakReportId;
-	private String gpTransportReportId;
-	private String scrapDate;
-	private String scrapReason;
+	private Integer proId;
+	private String shieldPosePic;
+	private String synchronousGroutPic;
+	private String inCheckPic;
+	private String downWellPic;
+	private String pzqcheckPic;
+	private String segmentrepairPic;
 	private Integer isEast;
 
 	// Constructors
@@ -45,46 +26,17 @@ public class GpTotalInfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpTotalInfo(String gpId, Integer proId, String coverid,
-			Integer produceLoop, Integer tunnelLoop,
-			Integer tunnelLoopLocation, String type, String gpStatus,
-			Integer workShift, String steelRawReportId,
-			String steelQualReportId, String concResistCompReportId,
-			String concMixRatioId, String concResistLeakId,
-			String steelProcessReportId, String steelSkelHalfReportId,
-			String steelSkelQualReportId, String gpAppeSizeReportId,
-			String moldQualReportId, String concPourReportId,
-			String gpSteamCuringId, String waterCuringReportId,
-			String assemReportId, String checkLeakReportId,
-			String gpTransportReportId, String scrapDate, String scrapReason,
-			Integer isEast) {
-		this.gpId = gpId;
-		this.proId = proId;
-		this.coverid = coverid;
-		this.produceLoop = produceLoop;
+	public GpTotalInfo(Integer tunnelLoop, Integer proId, String shieldPosePic,
+			String synchronousGroutPic, String inCheckPic, String downWellPic,
+			String pzqcheckPic, String segmentrepairPic, Integer isEast) {
 		this.tunnelLoop = tunnelLoop;
-		this.tunnelLoopLocation = tunnelLoopLocation;
-		this.type = type;
-		this.gpStatus = gpStatus;
-		this.workShift = workShift;
-		this.steelRawReportId = steelRawReportId;
-		this.steelQualReportId = steelQualReportId;
-		this.concResistCompReportId = concResistCompReportId;
-		this.concMixRatioId = concMixRatioId;
-		this.concResistLeakId = concResistLeakId;
-		this.steelProcessReportId = steelProcessReportId;
-		this.steelSkelHalfReportId = steelSkelHalfReportId;
-		this.steelSkelQualReportId = steelSkelQualReportId;
-		this.gpAppeSizeReportId = gpAppeSizeReportId;
-		this.moldQualReportId = moldQualReportId;
-		this.concPourReportId = concPourReportId;
-		this.gpSteamCuringId = gpSteamCuringId;
-		this.waterCuringReportId = waterCuringReportId;
-		this.assemReportId = assemReportId;
-		this.checkLeakReportId = checkLeakReportId;
-		this.gpTransportReportId = gpTransportReportId;
-		this.scrapDate = scrapDate;
-		this.scrapReason = scrapReason;
+		this.proId = proId;
+		this.shieldPosePic = shieldPosePic;
+		this.synchronousGroutPic = synchronousGroutPic;
+		this.inCheckPic = inCheckPic;
+		this.downWellPic = downWellPic;
+		this.pzqcheckPic = pzqcheckPic;
+		this.segmentrepairPic = segmentrepairPic;
 		this.isEast = isEast;
 	}
 
@@ -98,12 +50,12 @@ public class GpTotalInfo implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getGpId() {
-		return this.gpId;
+	public Integer getTunnelLoop() {
+		return this.tunnelLoop;
 	}
 
-	public void setGpId(String gpId) {
-		this.gpId = gpId;
+	public void setTunnelLoop(Integer tunnelLoop) {
+		this.tunnelLoop = tunnelLoop;
 	}
 
 	public Integer getProId() {
@@ -114,204 +66,52 @@ public class GpTotalInfo implements java.io.Serializable {
 		this.proId = proId;
 	}
 
-	public String getCoverid() {
-		return this.coverid;
+	public String getShieldPosePic() {
+		return this.shieldPosePic;
 	}
 
-	public void setCoverid(String coverid) {
-		this.coverid = coverid;
+	public void setShieldPosePic(String shieldPosePic) {
+		this.shieldPosePic = shieldPosePic;
 	}
 
-	public Integer getProduceLoop() {
-		return this.produceLoop;
+	public String getSynchronousGroutPic() {
+		return this.synchronousGroutPic;
 	}
 
-	public void setProduceLoop(Integer produceLoop) {
-		this.produceLoop = produceLoop;
+	public void setSynchronousGroutPic(String synchronousGroutPic) {
+		this.synchronousGroutPic = synchronousGroutPic;
 	}
 
-	public Integer getTunnelLoop() {
-		return this.tunnelLoop;
+	public String getInCheckPic() {
+		return this.inCheckPic;
 	}
 
-	public void setTunnelLoop(Integer tunnelLoop) {
-		this.tunnelLoop = tunnelLoop;
+	public void setInCheckPic(String inCheckPic) {
+		this.inCheckPic = inCheckPic;
 	}
 
-	public Integer getTunnelLoopLocation() {
-		return this.tunnelLoopLocation;
+	public String getDownWellPic() {
+		return this.downWellPic;
 	}
 
-	public void setTunnelLoopLocation(Integer tunnelLoopLocation) {
-		this.tunnelLoopLocation = tunnelLoopLocation;
+	public void setDownWellPic(String downWellPic) {
+		this.downWellPic = downWellPic;
 	}
 
-	public String getType() {
-		return this.type;
+	public String getPzqcheckPic() {
+		return this.pzqcheckPic;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setPzqcheckPic(String pzqcheckPic) {
+		this.pzqcheckPic = pzqcheckPic;
 	}
 
-	public String getGpStatus() {
-		return this.gpStatus;
+	public String getSegmentrepairPic() {
+		return this.segmentrepairPic;
 	}
 
-	public void setGpStatus(String gpStatus) {
-		this.gpStatus = gpStatus;
-	}
-
-	public Integer getWorkShift() {
-		return this.workShift;
-	}
-
-	public void setWorkShift(Integer workShift) {
-		this.workShift = workShift;
-	}
-
-	public String getSteelRawReportId() {
-		return this.steelRawReportId;
-	}
-
-	public void setSteelRawReportId(String steelRawReportId) {
-		this.steelRawReportId = steelRawReportId;
-	}
-
-	public String getSteelQualReportId() {
-		return this.steelQualReportId;
-	}
-
-	public void setSteelQualReportId(String steelQualReportId) {
-		this.steelQualReportId = steelQualReportId;
-	}
-
-	public String getConcResistCompReportId() {
-		return this.concResistCompReportId;
-	}
-
-	public void setConcResistCompReportId(String concResistCompReportId) {
-		this.concResistCompReportId = concResistCompReportId;
-	}
-
-	public String getConcMixRatioId() {
-		return this.concMixRatioId;
-	}
-
-	public void setConcMixRatioId(String concMixRatioId) {
-		this.concMixRatioId = concMixRatioId;
-	}
-
-	public String getConcResistLeakId() {
-		return this.concResistLeakId;
-	}
-
-	public void setConcResistLeakId(String concResistLeakId) {
-		this.concResistLeakId = concResistLeakId;
-	}
-
-	public String getSteelProcessReportId() {
-		return this.steelProcessReportId;
-	}
-
-	public void setSteelProcessReportId(String steelProcessReportId) {
-		this.steelProcessReportId = steelProcessReportId;
-	}
-
-	public String getSteelSkelHalfReportId() {
-		return this.steelSkelHalfReportId;
-	}
-
-	public void setSteelSkelHalfReportId(String steelSkelHalfReportId) {
-		this.steelSkelHalfReportId = steelSkelHalfReportId;
-	}
-
-	public String getSteelSkelQualReportId() {
-		return this.steelSkelQualReportId;
-	}
-
-	public void setSteelSkelQualReportId(String steelSkelQualReportId) {
-		this.steelSkelQualReportId = steelSkelQualReportId;
-	}
-
-	public String getGpAppeSizeReportId() {
-		return this.gpAppeSizeReportId;
-	}
-
-	public void setGpAppeSizeReportId(String gpAppeSizeReportId) {
-		this.gpAppeSizeReportId = gpAppeSizeReportId;
-	}
-
-	public String getMoldQualReportId() {
-		return this.moldQualReportId;
-	}
-
-	public void setMoldQualReportId(String moldQualReportId) {
-		this.moldQualReportId = moldQualReportId;
-	}
-
-	public String getConcPourReportId() {
-		return this.concPourReportId;
-	}
-
-	public void setConcPourReportId(String concPourReportId) {
-		this.concPourReportId = concPourReportId;
-	}
-
-	public String getGpSteamCuringId() {
-		return this.gpSteamCuringId;
-	}
-
-	public void setGpSteamCuringId(String gpSteamCuringId) {
-		this.gpSteamCuringId = gpSteamCuringId;
-	}
-
-	public String getWaterCuringReportId() {
-		return this.waterCuringReportId;
-	}
-
-	public void setWaterCuringReportId(String waterCuringReportId) {
-		this.waterCuringReportId = waterCuringReportId;
-	}
-
-	public String getAssemReportId() {
-		return this.assemReportId;
-	}
-
-	public void setAssemReportId(String assemReportId) {
-		this.assemReportId = assemReportId;
-	}
-
-	public String getCheckLeakReportId() {
-		return this.checkLeakReportId;
-	}
-
-	public void setCheckLeakReportId(String checkLeakReportId) {
-		this.checkLeakReportId = checkLeakReportId;
-	}
-
-	public String getGpTransportReportId() {
-		return this.gpTransportReportId;
-	}
-
-	public void setGpTransportReportId(String gpTransportReportId) {
-		this.gpTransportReportId = gpTransportReportId;
-	}
-
-	public String getScrapDate() {
-		return this.scrapDate;
-	}
-
-	public void setScrapDate(String scrapDate) {
-		this.scrapDate = scrapDate;
-	}
-
-	public String getScrapReason() {
-		return this.scrapReason;
-	}
-
-	public void setScrapReason(String scrapReason) {
-		this.scrapReason = scrapReason;
+	public void setSegmentrepairPic(String segmentrepairPic) {
+		this.segmentrepairPic = segmentrepairPic;
 	}
 
 	public Integer getIsEast() {

@@ -9,8 +9,11 @@ public class GpSoilproperty implements java.io.Serializable {
 	// Fields
 
 	private Integer tcIndx;
+	private Integer proId;
 	private String tcCno;
 	private String tcTcmc;
+	private String tcLoop;
+	private String tcLicheng;
 	private Double tcHsl;
 	private Double tcZd;
 	private Double tcMd;
@@ -39,13 +42,17 @@ public class GpSoilproperty implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpSoilproperty(String tcCno, String tcTcmc, Double tcHsl,
-			Double tcZd, Double tcMd, Double tcBhd, Double tcKxb, Double tcNr,
-			Double tcKh, Double tcKv, Double tcCu, Double tcYsml, Double tcN,
-			Double tcYs, Double tcCy, Double tcWp, Double tcWl, Double tcIl,
-			Double tcIp, Double tcDzky, Double tcSyhl, Integer isEast) {
+	public GpSoilproperty(Integer proId, String tcCno, String tcTcmc,
+			String tcLoop, String tcLicheng, Double tcHsl, Double tcZd,
+			Double tcMd, Double tcBhd, Double tcKxb, Double tcNr, Double tcKh,
+			Double tcKv, Double tcCu, Double tcYsml, Double tcN, Double tcYs,
+			Double tcCy, Double tcWp, Double tcWl, Double tcIl, Double tcIp,
+			Double tcDzky, Double tcSyhl, Integer isEast) {
+		this.proId = proId;
 		this.tcCno = tcCno;
 		this.tcTcmc = tcTcmc;
+		this.tcLoop = tcLoop;
+		this.tcLicheng = tcLicheng;
 		this.tcHsl = tcHsl;
 		this.tcZd = tcZd;
 		this.tcMd = tcMd;
@@ -78,6 +85,14 @@ public class GpSoilproperty implements java.io.Serializable {
 		this.tcIndx = tcIndx;
 	}
 
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
+	}
+
 	public String getTcCno() {
 		return this.tcCno;
 	}
@@ -92,6 +107,22 @@ public class GpSoilproperty implements java.io.Serializable {
 
 	public void setTcTcmc(String tcTcmc) {
 		this.tcTcmc = tcTcmc;
+	}
+
+	public String getTcLoop() {
+		return this.tcLoop;
+	}
+
+	public void setTcLoop(String tcLoop) {
+		this.tcLoop = tcLoop;
+	}
+
+	public String getTcLicheng() {
+		return this.tcLicheng;
+	}
+
+	public void setTcLicheng(String tcLicheng) {
+		this.tcLicheng = tcLicheng;
 	}
 
 	public Double getTcHsl() {

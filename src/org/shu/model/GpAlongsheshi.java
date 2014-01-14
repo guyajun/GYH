@@ -9,7 +9,9 @@ public class GpAlongsheshi implements java.io.Serializable {
 	// Fields
 
 	private Integer ssIndx;
+	private Integer proId;
 	private Integer ssLoop;
+	private String ssLicheng;
 	private String ssDspt;
 	private String ssType;
 	private String ssYear;
@@ -17,8 +19,8 @@ public class GpAlongsheshi implements java.io.Serializable {
 	private String ssYongtu;
 	private String ssCyxs;
 	private String ssBase;
-	private Double ssJdbg;
-	private Double ssZsjj;
+	private String ssJdbg;
+	private String ssZsjj;
 	private Double ssCycj;
 	private Double ssLqcj;
 	private String ssRelcd;
@@ -32,11 +34,14 @@ public class GpAlongsheshi implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpAlongsheshi(Integer ssLoop, String ssDspt, String ssType,
-			String ssYear, String ssJiegou, String ssYongtu, String ssCyxs,
-			String ssBase, Double ssJdbg, Double ssZsjj, Double ssCycj,
-			Double ssLqcj, String ssRelcd, Double ssQx, Integer isEast) {
+	public GpAlongsheshi(Integer proId, Integer ssLoop, String ssLicheng,
+			String ssDspt, String ssType, String ssYear, String ssJiegou,
+			String ssYongtu, String ssCyxs, String ssBase, String ssJdbg,
+			String ssZsjj, Double ssCycj, Double ssLqcj, String ssRelcd,
+			Double ssQx, Integer isEast) {
+		this.proId = proId;
 		this.ssLoop = ssLoop;
+		this.ssLicheng = ssLicheng;
 		this.ssDspt = ssDspt;
 		this.ssType = ssType;
 		this.ssYear = ssYear;
@@ -63,12 +68,28 @@ public class GpAlongsheshi implements java.io.Serializable {
 		this.ssIndx = ssIndx;
 	}
 
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
+	}
+
 	public Integer getSsLoop() {
 		return this.ssLoop;
 	}
 
 	public void setSsLoop(Integer ssLoop) {
 		this.ssLoop = ssLoop;
+	}
+
+	public String getSsLicheng() {
+		return this.ssLicheng;
+	}
+
+	public void setSsLicheng(String ssLicheng) {
+		this.ssLicheng = ssLicheng;
 	}
 
 	public String getSsDspt() {
@@ -127,19 +148,19 @@ public class GpAlongsheshi implements java.io.Serializable {
 		this.ssBase = ssBase;
 	}
 
-	public Double getSsJdbg() {
+	public String getSsJdbg() {
 		return this.ssJdbg;
 	}
 
-	public void setSsJdbg(Double ssJdbg) {
+	public void setSsJdbg(String ssJdbg) {
 		this.ssJdbg = ssJdbg;
 	}
 
-	public Double getSsZsjj() {
+	public String getSsZsjj() {
 		return this.ssZsjj;
 	}
 
-	public void setSsZsjj(Double ssZsjj) {
+	public void setSsZsjj(String ssZsjj) {
 		this.ssZsjj = ssZsjj;
 	}
 

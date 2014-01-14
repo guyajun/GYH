@@ -5,12 +5,38 @@ $(function(){
 	$('#queryLoopButton').on('click',function(){
 		$('#form-loop').submit();
 	});
-	var _startDatePicker = $('.gp-produce-date');
+	var _startDatePicker = $('.start-date');
+	_startDatePicker.datetimepicker({
+		pickTime: false,
+		orientation: 'left',
+		defaultDate: moment(),
+		format: "YYYY-MM-DD",
+		icons: {
+			time: "fa fa-clock-o",
+			date: "fa fa-calendar",
+			up: "fa fa-arrow-up",
+			down: "fa fa-arrow-down"
+		}
+	});	
+	var _endDatePicker = $('.end-date');
+	_endDatePicker.datetimepicker({
+		pickTime: false,
+		orientation: 'left',
+		defaultDate: moment(),
+		format: "YYYY-MM-DD",
+		icons: {
+			time: "fa fa-clock-o",
+			date: "fa fa-calendar",
+			up: "fa fa-arrow-up",
+			down: "fa fa-arrow-down"
+		}
+	});
 	$('#input-page').keyup(function(e) {
 		if (e.keyCode === 13) {
 			$('#form-page').submit();
 		}
 	});
+	
 	$('.btn-detail').on('click',function(){
 		var tr = $(this).parent().parent();
 		$('#a').text(tr.find('#aa').text());
@@ -56,17 +82,6 @@ $(function(){
 		$('#3e').text(tr.find('#eee').text());
 		$('#modal-detail').modal('show');
 	});
-	_startDatePicker.datetimepicker({
-		pickTime: false,
-		orientation: 'left',
-		defaultDate: moment(),
-		format: "YYYY-MM-DD",
-		icons: {
-			time: "fa fa-clock-o",
-			date: "fa fa-calendar",
-			up: "fa fa-arrow-up",
-			down: "fa fa-arrow-down"
-		}
-	});	
+	
 	
 })

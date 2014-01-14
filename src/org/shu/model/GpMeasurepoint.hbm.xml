@@ -10,6 +10,9 @@
             <column name="CB_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="cbCdno" type="java.lang.String">
             <column name="CB_CDNO" />
         </property>

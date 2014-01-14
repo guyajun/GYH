@@ -10,6 +10,9 @@
             <column name="DC_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="dcCdno" type="java.lang.String">
             <column name="DC_CDNO" />
         </property>

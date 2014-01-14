@@ -83,26 +83,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">管片生产信息</h3>
 					</div>
-					<div class="panel-body">
-						<div class="well">
-							<div class="btn-group">
-								<a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-upload">上传文件</a>
-							</div>
-							<div class="btn-group">
-								<form id="form-download" method="post" action="/GP/construct-web/ftpDownload.action">
-								<input id="downloads" name="downloads" type="hidden">
-								<input name="fileFolder" value="${fileFolder}" type="hidden">
-								<button id="download-btn" type="button" class="btn btn-success">下载</button>
-								</form>
-							</div>
-							<div class="btn-group">
-								<form id="form-delete" method="post" action="/GP/construct-web/ftpDelete.action">
-								<input id="delete" name="delete" type="hidden">
-								<input name="fileFolder" value="${fileFolder}" type="hidden">
-								<button id="delete-btn" type="button" class="btn btn-success">删除</button>
-								</form>								
-							</div>													
-						</div>
+					<div class="panel-body">						
 						<div class="modal fade" id="modal-upload">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -133,19 +114,17 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<td><input id="check-all" type="checkbox"></td>
 									<td>序号</td>
-									<td>文件夹名称</td>														
+									<td>文件名称</td>														
 								</tr>         
 								<%int i=0; %>   
 								<s:iterator value="#request.list" id="son">
 								<tr>
-									<td><input class="check-one" type="checkbox" value="<s:property/>"></td>
 									<td id="aa">
 										<%=++i %>
 									</td>
-									<td id="bb">
-										<s:property/>
+									<td id="bb">										
+<a href="/GP/construct-web/getSon.action?folder=<s:property/>&ftpPath=<s:property value="#request.ftpPath"/>"><s:property/></a>	
 									</td>																
 								</tr>
 								
@@ -155,7 +134,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div id="footer">

@@ -215,8 +215,7 @@ public class SystemService {
 	public void treeGenerator(List<FunctionInfo> children,Tree parent) throws Exception
 	{
 		List<Tree> treeList = new ArrayList<Tree>();
-		parent.setChildren(treeList);
-		
+		parent.setChildren(treeList);		
 		if(children!=null&&children.size()>0)
 		{
 			for(int i=0;i<children.size();i++)

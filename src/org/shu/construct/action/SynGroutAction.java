@@ -53,7 +53,7 @@ public class SynGroutAction extends BaseAction{
 	}
 	public String getBytunnelLoop() {
 		Pager pager = new Pager(1,1);
-		ArrayList<SynchronousGrout> groutList = synService.getCountById(tunnelLoop); 
+		ArrayList<SynchronousGrout> groutList = synService.groutSearchByLoop(tunnelLoop); 
 		Map request = (Map) ActionContext.getContext().get("request");
 		request.put("pager", pager);
 		request.put("groutList", groutList);

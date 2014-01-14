@@ -9,6 +9,7 @@ public class GpMeasurepoint implements java.io.Serializable {
 	// Fields
 
 	private Integer cbIndx;
+	private Integer proId;
 	private String cbCdno;
 	private String cbType;
 	private String cbLicheng;
@@ -27,9 +28,10 @@ public class GpMeasurepoint implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpMeasurepoint(String cbCdno, String cbType, String cbLicheng,
-			Double cbTx, Double cbTy, Double cbGx, Double cbGy, String cbBase,
-			String cbBldrel, Integer isEast) {
+	public GpMeasurepoint(Integer proId, String cbCdno, String cbType,
+			String cbLicheng, Double cbTx, Double cbTy, Double cbGx,
+			Double cbGy, String cbBase, String cbBldrel, Integer isEast) {
+		this.proId = proId;
 		this.cbCdno = cbCdno;
 		this.cbType = cbType;
 		this.cbLicheng = cbLicheng;
@@ -50,6 +52,14 @@ public class GpMeasurepoint implements java.io.Serializable {
 
 	public void setCbIndx(Integer cbIndx) {
 		this.cbIndx = cbIndx;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public String getCbCdno() {

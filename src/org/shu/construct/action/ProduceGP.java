@@ -1,7 +1,5 @@
 package org.shu.construct.action;
 
-import java.io.File;
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -10,20 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Properties;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.shu.model.ShengChanGpTotalInfo;
 import org.tool.CommonParam;
 import org.tool.Pager;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.name.Named;
-import com.google.inject.name.Names;
 import com.opensymphony.xwork2.ActionContext;
 import common.base.action.BaseAction;
 
@@ -44,6 +30,7 @@ public class ProduceGP extends BaseAction{
 		System.out.println("pageNow="+pageNow);
 		this.pageNow = pageNow;
 	}
+	
 	public String getByLoop() {
 		CommonParam cp=new CommonParam();
 		String path=cp.getString("storage_path");
@@ -102,7 +89,7 @@ public class ProduceGP extends BaseAction{
 					.newInstance();
 			Connection con = DriverManager.getConnection(
 					"jdbc:sqlserver://localhost:1433;databaseName=GP0711",
-					"aa", "ZBF917ZGB919cs");
+					"sa", "ZBF917ZGB919cs");
 			if (!con.isClosed()) {
 				System.out.println("Successfully connected to server");
 			}
@@ -124,6 +111,7 @@ public class ProduceGP extends BaseAction{
 		}
 		return list;
 	}
+	
 	public ArrayList<ShengChanGpTotalInfo> getByLoop1(int loop) {
 		ArrayList<ShengChanGpTotalInfo> list =getBySql("select * from GP_TOTAL_INFO where PRODUCE_LOOP="+loop);
 		return list;

@@ -10,11 +10,20 @@
             <column name="TC_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="tcCno" type="java.lang.String">
             <column name="TC_CNO" />
         </property>
         <property name="tcTcmc" type="java.lang.String">
             <column name="TC_TCMC" />
+        </property>
+        <property name="tcLoop" type="java.lang.String">
+            <column name="TC_LOOP" />
+        </property>
+        <property name="tcLicheng" type="java.lang.String">
+            <column name="TC_LICHENG" />
         </property>
         <property name="tcHsl" type="java.lang.Double">
             <column name="TC_HSL" precision="53" scale="0" />

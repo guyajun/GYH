@@ -10,6 +10,9 @@
             <column name="DZ_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="dzLc" type="java.lang.String">
             <column name="DZ_LC" />
         </property>

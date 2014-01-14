@@ -13,7 +13,6 @@ public class ProInfo implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private ProInfo proInfo;
 	private String proCode;
 	private String proName;
 	private String proType;
@@ -22,6 +21,7 @@ public class ProInfo implements java.io.Serializable {
 	private String endGpId;
 	private Double gkTltp;
 	private Double gkTllg;
+	private Double gkIndm;
 	private Double gkOtdm;
 	private String gkSdtp;
 	private Double gkSddm;
@@ -40,31 +40,12 @@ public class ProInfo implements java.io.Serializable {
 	private String gkSptmg;
 	private String gkBldmg;
 	private String description;
-	private String directorId;
-	private String directorPhone;
-	private String levelOneId;
-	private String levelTwoId;
+	private String ringWidth;
 	private String proStatus;
-	private String proBlock;
-	private String importantPro;
-	private String keyFocus;
-	private String proClass;
-	private String provincePro;
-	private String url;
 	private String produceUnit;
-	private String buildUnit;
-	private String designUnit;
-	private String manageUnit;
-	private String constructUnit;
-	private Timestamp buildTime;
 	private Timestamp completeTime;
-	private String creatorId;
-	private Timestamp createTime;
-	private String modifierId;
-	private Timestamp modifyTime;
 	private String memo;
 	private Integer isEast;
-	private Set proInfos = new HashSet(0);
 	private Set concRcvds = new HashSet(0);
 
 	// Constructors
@@ -74,23 +55,15 @@ public class ProInfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ProInfo(ProInfo proInfo, String proCode, String proName,
-			String proType, Integer gpCount, String startGpId, String endGpId,
-			Double gkTltp, Double gkTllg, Double gkOtdm, String gkSdtp,
+	public ProInfo(String proCode, String proName, String proType,
+			Integer gpCount, String startGpId, String endGpId, Double gkTltp,
+			Double gkTllg, Double gkIndm, Double gkOtdm, String gkSdtp,
 			Double gkSddm, Double gkSdlg, Integer gkStrg, String gkStdt,
 			String gkLayer, String gkAxspic1, String gkAxspic2, String gkPzxs,
 			String gkXt, String gkCst, String gkSpt, String gkBld,
 			String gkCstmg, String gkSptmg, String gkBldmg, String description,
-			String directorId, String directorPhone, String levelOneId,
-			String levelTwoId, String proStatus, String proBlock,
-			String importantPro, String keyFocus, String proClass,
-			String provincePro, String url, String produceUnit,
-			String buildUnit, String designUnit, String manageUnit,
-			String constructUnit, Timestamp buildTime, Timestamp completeTime,
-			String creatorId, Timestamp createTime, String modifierId,
-			Timestamp modifyTime, String memo, Integer isEast, Set proInfos,
-			Set concRcvds) {
-		this.proInfo = proInfo;
+			String ringWidth, String proStatus, String produceUnit,
+			Timestamp completeTime, String memo, Integer isEast, Set concRcvds) {
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proType = proType;
@@ -99,6 +72,7 @@ public class ProInfo implements java.io.Serializable {
 		this.endGpId = endGpId;
 		this.gkTltp = gkTltp;
 		this.gkTllg = gkTllg;
+		this.gkIndm = gkIndm;
 		this.gkOtdm = gkOtdm;
 		this.gkSdtp = gkSdtp;
 		this.gkSddm = gkSddm;
@@ -117,31 +91,12 @@ public class ProInfo implements java.io.Serializable {
 		this.gkSptmg = gkSptmg;
 		this.gkBldmg = gkBldmg;
 		this.description = description;
-		this.directorId = directorId;
-		this.directorPhone = directorPhone;
-		this.levelOneId = levelOneId;
-		this.levelTwoId = levelTwoId;
+		this.ringWidth = ringWidth;
 		this.proStatus = proStatus;
-		this.proBlock = proBlock;
-		this.importantPro = importantPro;
-		this.keyFocus = keyFocus;
-		this.proClass = proClass;
-		this.provincePro = provincePro;
-		this.url = url;
 		this.produceUnit = produceUnit;
-		this.buildUnit = buildUnit;
-		this.designUnit = designUnit;
-		this.manageUnit = manageUnit;
-		this.constructUnit = constructUnit;
-		this.buildTime = buildTime;
 		this.completeTime = completeTime;
-		this.creatorId = creatorId;
-		this.createTime = createTime;
-		this.modifierId = modifierId;
-		this.modifyTime = modifyTime;
 		this.memo = memo;
 		this.isEast = isEast;
-		this.proInfos = proInfos;
 		this.concRcvds = concRcvds;
 	}
 
@@ -153,14 +108,6 @@ public class ProInfo implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public ProInfo getProInfo() {
-		return this.proInfo;
-	}
-
-	public void setProInfo(ProInfo proInfo) {
-		this.proInfo = proInfo;
 	}
 
 	public String getProCode() {
@@ -225,6 +172,14 @@ public class ProInfo implements java.io.Serializable {
 
 	public void setGkTllg(Double gkTllg) {
 		this.gkTllg = gkTllg;
+	}
+
+	public Double getGkIndm() {
+		return this.gkIndm;
+	}
+
+	public void setGkIndm(Double gkIndm) {
+		this.gkIndm = gkIndm;
 	}
 
 	public Double getGkOtdm() {
@@ -371,36 +326,12 @@ public class ProInfo implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public String getDirectorId() {
-		return this.directorId;
+	public String getRingWidth() {
+		return this.ringWidth;
 	}
 
-	public void setDirectorId(String directorId) {
-		this.directorId = directorId;
-	}
-
-	public String getDirectorPhone() {
-		return this.directorPhone;
-	}
-
-	public void setDirectorPhone(String directorPhone) {
-		this.directorPhone = directorPhone;
-	}
-
-	public String getLevelOneId() {
-		return this.levelOneId;
-	}
-
-	public void setLevelOneId(String levelOneId) {
-		this.levelOneId = levelOneId;
-	}
-
-	public String getLevelTwoId() {
-		return this.levelTwoId;
-	}
-
-	public void setLevelTwoId(String levelTwoId) {
-		this.levelTwoId = levelTwoId;
+	public void setRingWidth(String ringWidth) {
+		this.ringWidth = ringWidth;
 	}
 
 	public String getProStatus() {
@@ -411,54 +342,6 @@ public class ProInfo implements java.io.Serializable {
 		this.proStatus = proStatus;
 	}
 
-	public String getProBlock() {
-		return this.proBlock;
-	}
-
-	public void setProBlock(String proBlock) {
-		this.proBlock = proBlock;
-	}
-
-	public String getImportantPro() {
-		return this.importantPro;
-	}
-
-	public void setImportantPro(String importantPro) {
-		this.importantPro = importantPro;
-	}
-
-	public String getKeyFocus() {
-		return this.keyFocus;
-	}
-
-	public void setKeyFocus(String keyFocus) {
-		this.keyFocus = keyFocus;
-	}
-
-	public String getProClass() {
-		return this.proClass;
-	}
-
-	public void setProClass(String proClass) {
-		this.proClass = proClass;
-	}
-
-	public String getProvincePro() {
-		return this.provincePro;
-	}
-
-	public void setProvincePro(String provincePro) {
-		this.provincePro = provincePro;
-	}
-
-	public String getUrl() {
-		return this.url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
 	public String getProduceUnit() {
 		return this.produceUnit;
 	}
@@ -467,84 +350,12 @@ public class ProInfo implements java.io.Serializable {
 		this.produceUnit = produceUnit;
 	}
 
-	public String getBuildUnit() {
-		return this.buildUnit;
-	}
-
-	public void setBuildUnit(String buildUnit) {
-		this.buildUnit = buildUnit;
-	}
-
-	public String getDesignUnit() {
-		return this.designUnit;
-	}
-
-	public void setDesignUnit(String designUnit) {
-		this.designUnit = designUnit;
-	}
-
-	public String getManageUnit() {
-		return this.manageUnit;
-	}
-
-	public void setManageUnit(String manageUnit) {
-		this.manageUnit = manageUnit;
-	}
-
-	public String getConstructUnit() {
-		return this.constructUnit;
-	}
-
-	public void setConstructUnit(String constructUnit) {
-		this.constructUnit = constructUnit;
-	}
-
-	public Timestamp getBuildTime() {
-		return this.buildTime;
-	}
-
-	public void setBuildTime(Timestamp buildTime) {
-		this.buildTime = buildTime;
-	}
-
 	public Timestamp getCompleteTime() {
 		return this.completeTime;
 	}
 
 	public void setCompleteTime(Timestamp completeTime) {
 		this.completeTime = completeTime;
-	}
-
-	public String getCreatorId() {
-		return this.creatorId;
-	}
-
-	public void setCreatorId(String creatorId) {
-		this.creatorId = creatorId;
-	}
-
-	public Timestamp getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getModifierId() {
-		return this.modifierId;
-	}
-
-	public void setModifierId(String modifierId) {
-		this.modifierId = modifierId;
-	}
-
-	public Timestamp getModifyTime() {
-		return this.modifyTime;
-	}
-
-	public void setModifyTime(Timestamp modifyTime) {
-		this.modifyTime = modifyTime;
 	}
 
 	public String getMemo() {
@@ -561,14 +372,6 @@ public class ProInfo implements java.io.Serializable {
 
 	public void setIsEast(Integer isEast) {
 		this.isEast = isEast;
-	}
-
-	public Set getProInfos() {
-		return this.proInfos;
-	}
-
-	public void setProInfos(Set proInfos) {
-		this.proInfos = proInfos;
 	}
 
 	public Set getConcRcvds() {

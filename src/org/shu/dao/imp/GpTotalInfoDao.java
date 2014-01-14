@@ -24,7 +24,7 @@ public class GpTotalInfoDao extends GenericHibernateDao<GpTotalInfo, Integer> {
         String sql = "select top 1 * from GP_TOTAL_INFO order by id desc;";
         List<GpTotalInfo> gpTotalInfos = sqlFind(sql);
         if (gpTotalInfos.size() > 0)
-            return gpTotalInfos.get(0).getProduceLoop();
+            return gpTotalInfos.get(0).getTunnelLoop();
         else
             return 0;
     }

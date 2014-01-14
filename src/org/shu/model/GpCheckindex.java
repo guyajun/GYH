@@ -9,14 +9,13 @@ public class GpCheckindex implements java.io.Serializable {
 	// Fields
 
 	private Integer tgIndx;
-	private String tgGaocheng;
-	private String tgPingmian;
-	private String tgYxgc;
-	private String tgHfzk;
-	private String tgZfzk;
-	private String tgTyd;
-	private Integer tgSdgs;
-	private Double tgGxpcyxz;
+	private Integer proId;
+	private Double tgGaocheng;
+	private Double tgPingmian;
+	private Double tgYxgc;
+	private Double tgHfzk;
+	private Double tgZfzk;
+	private Double tgTyd;
 	private Double tgDmcjlq;
 	private Double tgDmcjcj;
 	private Double tgZbjzbx;
@@ -30,18 +29,17 @@ public class GpCheckindex implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpCheckindex(String tgGaocheng, String tgPingmian, String tgYxgc,
-			String tgHfzk, String tgZfzk, String tgTyd, Integer tgSdgs,
-			Double tgGxpcyxz, Double tgDmcjlq, Double tgDmcjcj,
-			Double tgZbjzbx, Double tgGxzdbx, Integer isEast) {
+	public GpCheckindex(Integer proId, Double tgGaocheng, Double tgPingmian,
+			Double tgYxgc, Double tgHfzk, Double tgZfzk, Double tgTyd,
+			Double tgDmcjlq, Double tgDmcjcj, Double tgZbjzbx, Double tgGxzdbx,
+			Integer isEast) {
+		this.proId = proId;
 		this.tgGaocheng = tgGaocheng;
 		this.tgPingmian = tgPingmian;
 		this.tgYxgc = tgYxgc;
 		this.tgHfzk = tgHfzk;
 		this.tgZfzk = tgZfzk;
 		this.tgTyd = tgTyd;
-		this.tgSdgs = tgSdgs;
-		this.tgGxpcyxz = tgGxpcyxz;
 		this.tgDmcjlq = tgDmcjlq;
 		this.tgDmcjcj = tgDmcjcj;
 		this.tgZbjzbx = tgZbjzbx;
@@ -59,68 +57,60 @@ public class GpCheckindex implements java.io.Serializable {
 		this.tgIndx = tgIndx;
 	}
 
-	public String getTgGaocheng() {
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
+	}
+
+	public Double getTgGaocheng() {
 		return this.tgGaocheng;
 	}
 
-	public void setTgGaocheng(String tgGaocheng) {
+	public void setTgGaocheng(Double tgGaocheng) {
 		this.tgGaocheng = tgGaocheng;
 	}
 
-	public String getTgPingmian() {
+	public Double getTgPingmian() {
 		return this.tgPingmian;
 	}
 
-	public void setTgPingmian(String tgPingmian) {
+	public void setTgPingmian(Double tgPingmian) {
 		this.tgPingmian = tgPingmian;
 	}
 
-	public String getTgYxgc() {
+	public Double getTgYxgc() {
 		return this.tgYxgc;
 	}
 
-	public void setTgYxgc(String tgYxgc) {
+	public void setTgYxgc(Double tgYxgc) {
 		this.tgYxgc = tgYxgc;
 	}
 
-	public String getTgHfzk() {
+	public Double getTgHfzk() {
 		return this.tgHfzk;
 	}
 
-	public void setTgHfzk(String tgHfzk) {
+	public void setTgHfzk(Double tgHfzk) {
 		this.tgHfzk = tgHfzk;
 	}
 
-	public String getTgZfzk() {
+	public Double getTgZfzk() {
 		return this.tgZfzk;
 	}
 
-	public void setTgZfzk(String tgZfzk) {
+	public void setTgZfzk(Double tgZfzk) {
 		this.tgZfzk = tgZfzk;
 	}
 
-	public String getTgTyd() {
+	public Double getTgTyd() {
 		return this.tgTyd;
 	}
 
-	public void setTgTyd(String tgTyd) {
+	public void setTgTyd(Double tgTyd) {
 		this.tgTyd = tgTyd;
-	}
-
-	public Integer getTgSdgs() {
-		return this.tgSdgs;
-	}
-
-	public void setTgSdgs(Integer tgSdgs) {
-		this.tgSdgs = tgSdgs;
-	}
-
-	public Double getTgGxpcyxz() {
-		return this.tgGxpcyxz;
-	}
-
-	public void setTgGxpcyxz(Double tgGxpcyxz) {
-		this.tgGxpcyxz = tgGxpcyxz;
 	}
 
 	public Double getTgDmcjlq() {

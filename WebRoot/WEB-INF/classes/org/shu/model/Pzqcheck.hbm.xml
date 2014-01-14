@@ -10,6 +10,9 @@
             <column name="id" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="produceLoop" type="java.lang.String">
             <column name="PRODUCE_LOOP" />
         </property>

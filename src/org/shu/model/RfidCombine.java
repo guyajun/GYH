@@ -20,6 +20,10 @@ public class RfidCombine implements java.io.Serializable {
 	private String rfidLoc;
 	private String creator;
 	private Timestamp createDate;
+	private String downTid;
+	private String downCode;
+	private String downCreator;
+	private Timestamp downCreatdate;
 
 	// Constructors
 
@@ -30,7 +34,8 @@ public class RfidCombine implements java.io.Serializable {
 	/** full constructor */
 	public RfidCombine(Integer tunnelLoop, Integer proId, String tid,
 			String coverId, String code, String circlelist, String rfidLoc,
-			String creator, Timestamp createDate) {
+			String creator, Timestamp createDate, String downTid,
+			String downCode, String downCreator, Timestamp downCreatdate) {
 		this.tunnelLoop = tunnelLoop;
 		this.proId = proId;
 		this.tid = tid;
@@ -40,6 +45,10 @@ public class RfidCombine implements java.io.Serializable {
 		this.rfidLoc = rfidLoc;
 		this.creator = creator;
 		this.createDate = createDate;
+		this.downTid = downTid;
+		this.downCode = downCode;
+		this.downCreator = downCreator;
+		this.downCreatdate = downCreatdate;
 	}
 
 	// Property accessors
@@ -122,6 +131,38 @@ public class RfidCombine implements java.io.Serializable {
 
 	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
+	}
+
+	public String getDownTid() {
+		return this.downTid;
+	}
+
+	public void setDownTid(String downTid) {
+		this.downTid = downTid;
+	}
+
+	public String getDownCode() {
+		return this.downCode;
+	}
+
+	public void setDownCode(String downCode) {
+		this.downCode = downCode;
+	}
+
+	public String getDownCreator() {
+		return this.downCreator;
+	}
+
+	public void setDownCreator(String downCreator) {
+		this.downCreator = downCreator;
+	}
+
+	public Timestamp getDownCreatdate() {
+		return this.downCreatdate;
+	}
+
+	public void setDownCreatdate(Timestamp downCreatdate) {
+		this.downCreatdate = downCreatdate;
 	}
 
 }

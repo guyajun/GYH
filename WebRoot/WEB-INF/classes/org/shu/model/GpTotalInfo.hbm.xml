@@ -10,86 +10,29 @@
             <column name="ID" />
             <generator class="native" />
         </id>
-        <property name="gpId" type="java.lang.String">
-            <column name="GP_ID" />
+        <property name="tunnelLoop" type="java.lang.Integer">
+            <column name="TUNNEL_LOOP" />
         </property>
         <property name="proId" type="java.lang.Integer">
             <column name="PRO_ID" />
         </property>
-        <property name="coverid" type="java.lang.String">
-            <column name="COVERID" />
+        <property name="shieldPosePic" type="java.lang.String">
+            <column name="SHIELD_POSE_PIC" />
         </property>
-        <property name="produceLoop" type="java.lang.Integer">
-            <column name="PRODUCE_LOOP" />
+        <property name="synchronousGroutPic" type="java.lang.String">
+            <column name="SYNCHRONOUS_GROUT_PIC" />
         </property>
-        <property name="tunnelLoop" type="java.lang.Integer">
-            <column name="TUNNEL_LOOP" />
+        <property name="inCheckPic" type="java.lang.String">
+            <column name="IN_CHECK_PIC" />
         </property>
-        <property name="tunnelLoopLocation" type="java.lang.Integer">
-            <column name="TUNNEL_LOOP_LOCATION" />
+        <property name="downWellPic" type="java.lang.String">
+            <column name="DOWN_WELL_PIC" />
         </property>
-        <property name="type" type="java.lang.String">
-            <column name="TYPE" />
+        <property name="pzqcheckPic" type="java.lang.String">
+            <column name="PZQCHECK_PIC" />
         </property>
-        <property name="gpStatus" type="java.lang.String">
-            <column name="GP_STATUS" />
-        </property>
-        <property name="workShift" type="java.lang.Integer">
-            <column name="WORK_SHIFT" />
-        </property>
-        <property name="steelRawReportId" type="java.lang.String">
-            <column name="STEEL_RAW_REPORT_ID" />
-        </property>
-        <property name="steelQualReportId" type="java.lang.String">
-            <column name="STEEL_QUAL_REPORT_ID" />
-        </property>
-        <property name="concResistCompReportId" type="java.lang.String">
-            <column name="CONC_RESIST_COMP_REPORT_ID" />
-        </property>
-        <property name="concMixRatioId" type="java.lang.String">
-            <column name="CONC_MIX_RATIO_ID" />
-        </property>
-        <property name="concResistLeakId" type="java.lang.String">
-            <column name="CONC_RESIST_LEAK_ID" />
-        </property>
-        <property name="steelProcessReportId" type="java.lang.String">
-            <column name="STEEL_PROCESS_REPORT_ID" />
-        </property>
-        <property name="steelSkelHalfReportId" type="java.lang.String">
-            <column name="STEEL_SKEL_HALF_REPORT_ID" />
-        </property>
-        <property name="steelSkelQualReportId" type="java.lang.String">
-            <column name="STEEL_SKEL_QUAL_REPORT_ID" />
-        </property>
-        <property name="gpAppeSizeReportId" type="java.lang.String">
-            <column name="GP_APPE_SIZE_REPORT_ID" />
-        </property>
-        <property name="moldQualReportId" type="java.lang.String">
-            <column name="MOLD_QUAL_REPORT_ID" />
-        </property>
-        <property name="concPourReportId" type="java.lang.String">
-            <column name="CONC_POUR_REPORT_ID" />
-        </property>
-        <property name="gpSteamCuringId" type="java.lang.String">
-            <column name="GP_STEAM_CURING_ID" />
-        </property>
-        <property name="waterCuringReportId" type="java.lang.String">
-            <column name="WATER_CURING_REPORT_ID" />
-        </property>
-        <property name="assemReportId" type="java.lang.String">
-            <column name="ASSEM_REPORT_ID" />
-        </property>
-        <property name="checkLeakReportId" type="java.lang.String">
-            <column name="CHECK_LEAK_REPORT_ID" />
-        </property>
-        <property name="gpTransportReportId" type="java.lang.String">
-            <column name="GP_TRANSPORT_REPORT_ID" />
-        </property>
-        <property name="scrapDate" type="java.lang.String">
-            <column name="SCRAP_DATE" />
-        </property>
-        <property name="scrapReason" type="java.lang.String">
-            <column name="SCRAP_REASON" />
+        <property name="segmentrepairPic" type="java.lang.String">
+            <column name="SEGMENTREPAIR_PIC" />
         </property>
         <property name="isEast" type="java.lang.Integer">
             <column name="IsEast" />

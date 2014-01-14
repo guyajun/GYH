@@ -38,7 +38,7 @@ public class SynService {
 	{
 		return synDao.getByDate(date, pageNow, pageSize);
 	}
-	public ArrayList<SynchronousGrout> getCountById(Integer tunnelLoop) {
+	public ArrayList<SynchronousGrout> groutSearchByLoop(Integer tunnelLoop) {
 		return (ArrayList<SynchronousGrout>) synDao.groutSearchByLoop(tunnelLoop);
 	}
 	

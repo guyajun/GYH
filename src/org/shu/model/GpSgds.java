@@ -9,6 +9,7 @@ public class GpSgds implements java.io.Serializable {
 	// Fields
 
 	private Integer dsIndx;
+	private Integer proId;
 	private String dsDate;
 	private String dsTitl;
 	private String dsDspt;
@@ -22,8 +23,9 @@ public class GpSgds implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpSgds(String dsDate, String dsTitl, String dsDspt, String dsPzr,
-			Integer isEast) {
+	public GpSgds(Integer proId, String dsDate, String dsTitl, String dsDspt,
+			String dsPzr, Integer isEast) {
+		this.proId = proId;
 		this.dsDate = dsDate;
 		this.dsTitl = dsTitl;
 		this.dsDspt = dsDspt;
@@ -39,6 +41,14 @@ public class GpSgds implements java.io.Serializable {
 
 	public void setDsIndx(Integer dsIndx) {
 		this.dsIndx = dsIndx;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public String getDsDate() {

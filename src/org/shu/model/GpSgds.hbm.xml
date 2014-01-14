@@ -10,6 +10,9 @@
             <column name="DS_INDX" />
             <generator class="native" />
         </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
         <property name="dsDate" type="java.lang.String">
             <column name="DS_DATE" />
         </property>

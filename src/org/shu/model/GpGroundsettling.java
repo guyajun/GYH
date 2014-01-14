@@ -11,8 +11,9 @@ public class GpGroundsettling implements java.io.Serializable {
 	// Fields
 
 	private Integer dcIndx;
+	private Integer proId;
 	private String dcCdno;
- private Timestamp dcTime;
+	private Timestamp dcTime;
 	private Double dcValue;
 	private Double dcVary;
 	private Double dcTotl;
@@ -31,10 +32,11 @@ public class GpGroundsettling implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpGroundsettling(String dcCdno, Timestamp dcTime, Double dcValue,
-			Double dcVary, Double dcTotl, Double dcX, Double dcY,
-			Double dcJzwmaxlq, Double dcJzwmaxcj, Double dcGxmaxlq,
+	public GpGroundsettling(Integer proId, String dcCdno, Timestamp dcTime,
+			Double dcValue, Double dcVary, Double dcTotl, Double dcX,
+			Double dcY, Double dcJzwmaxlq, Double dcJzwmaxcj, Double dcGxmaxlq,
 			Double dcGxmaxcj, Integer isEast) {
+		this.proId = proId;
 		this.dcCdno = dcCdno;
 		this.dcTime = dcTime;
 		this.dcValue = dcValue;
@@ -57,6 +59,14 @@ public class GpGroundsettling implements java.io.Serializable {
 
 	public void setDcIndx(Integer dcIndx) {
 		this.dcIndx = dcIndx;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public String getDcCdno() {

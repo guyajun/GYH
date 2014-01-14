@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.shu.construct.dao.BoltQualityDAO;
 import org.shu.construct.dao.PoseDao;
-import org.shu.construct.dao.ShieldDAO;
 import org.shu.construct.dao.SynDao;
 import org.shu.construct.dao.WaterProofDao;
 
@@ -14,7 +13,7 @@ public class ConstructService {
 	
 	private WaterProofDao waterProofDAO;
 	private BoltQualityDAO boldDAO;
-	private ShieldDAO shieldDao;
+//	private ShieldDAO shieldDao;
 	private SynDao synDao;
 	private PoseDao poseDao;
 	public void setPoseDao(PoseDao poseDao) {
@@ -37,9 +36,7 @@ public class ConstructService {
 		this.boldDAO = boldDAO;
 	}
 	
-    public void setShieldDao(ShieldDAO shieldDao) {
-		this.shieldDao = shieldDao;
-	}
+   
 
 	public void setSynDao(SynDao synDao) {
         this.synDao = synDao;
@@ -63,15 +60,15 @@ public class ConstructService {
 		return boldDAO.boldSearch(reportId);
 	}
 	
-	public List shieldSearch()
-	{
-		return shieldDao.shieldSearch();
-	}
-	
-	public List shieldSearch(String reportId) {
-		return shieldDao.shieldSearch(reportId);
-	}
-	
+//	public List shieldSearch()
+//	{
+//		return shieldDao.shieldSearch();
+//	}
+//	
+//	public List shieldSearch(String reportId) {
+//		return shieldDao.shieldSearch(reportId);
+//	}
+//	
 	public List synSearch()
 	{
 		return synDao.synSearch();

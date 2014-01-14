@@ -9,6 +9,7 @@ public class GpAlonggeology implements java.io.Serializable {
 	// Fields
 
 	private Integer dzIndx;
+	private Integer proId;
 	private String dzLc;
 	private Integer dzRing;
 	private Double dzWatr;
@@ -41,13 +42,14 @@ public class GpAlonggeology implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public GpAlonggeology(String dzLc, Integer dzRing, Double dzWatr,
-			Double dzDept1, Double dzDept2, Double dzDept3, Double dzDept4,
-			Double dzDept5, Double dzDept6, Double dzDept7, Double dzDept8,
-			Double dzDept9, Double dzDept10, Double dzDept11, Double dzDept12,
-			Double dzDept13, Double dzDept14, Double dzDept15, Double dzDept16,
-			Double dzDept17, Double dzDept18, Double dzDept19, Double dzDept20,
-			Integer isEast) {
+	public GpAlonggeology(Integer proId, String dzLc, Integer dzRing,
+			Double dzWatr, Double dzDept1, Double dzDept2, Double dzDept3,
+			Double dzDept4, Double dzDept5, Double dzDept6, Double dzDept7,
+			Double dzDept8, Double dzDept9, Double dzDept10, Double dzDept11,
+			Double dzDept12, Double dzDept13, Double dzDept14, Double dzDept15,
+			Double dzDept16, Double dzDept17, Double dzDept18, Double dzDept19,
+			Double dzDept20, Integer isEast) {
+		this.proId = proId;
 		this.dzLc = dzLc;
 		this.dzRing = dzRing;
 		this.dzWatr = dzWatr;
@@ -82,6 +84,14 @@ public class GpAlonggeology implements java.io.Serializable {
 
 	public void setDzIndx(Integer dzIndx) {
 		this.dzIndx = dzIndx;
+	}
+
+	public Integer getProId() {
+		return this.proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 	public String getDzLc() {

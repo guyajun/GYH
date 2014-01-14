@@ -9,7 +9,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		<property name="url"
 			value="jdbc:sqlserver://localhost:1433;databasename=GP">
 		</property>
-		<property name="username" value="aa"></property>
+		<property name="username" value="sa"></property>
 		<property name="password" value="ZBF917ZGB919cs"></property>
 	</bean>
 	<bean id="sessionFactory"
@@ -72,8 +72,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 				<value>org/shu/model/PartOfConcRcvd.hbm.xml</value>
 				<value>org/shu/model/InCheck.hbm.xml</value>
 				<value>org/shu/model/GpTransport.hbm.xml</value>
-				<value>org/shu/model/Manufacturer.hbm.xml</value>
-				<value>org/shu/model/GpSteel.hbm.xml</value>
 				<value>org/shu/model/GpSoilproperty.hbm.xml</value>
 				<value>org/shu/model/GpAlongsheshi.hbm.xml</value>
 				<value>org/shu/model/GpSgds.hbm.xml</value>
@@ -85,11 +83,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 				<value>org/shu/model/Pzqcheck.hbm.xml</value>
 				<value>org/shu/model/Segmentrepair.hbm.xml</value>
 				<value>org/shu/model/DownWell.hbm.xml</value>
-				<value>org/shu/model/GpTotalInfo.hbm.xml</value></list>
+				<value>org/shu/model/GpTotalInfo.hbm.xml</value>
+				<value>org/shu/model/CdinModelInfo.hbm.xml</value>
+				<value>org/shu/model/BuildingInModelInfo.hbm.xml</value>
+			</list>
 		</property>
 	</bean>
-	
-	<bean id="poseService" class="org.shu.construct.service.ShieldPoseService">
+
+	<bean id="poseService" class="org.shu.construct.service.PoseService">
 		<property name="poseDao">
 			<ref bean="poseDao" />
 		</property>
@@ -97,23 +98,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="poseDao" class="org.shu.construct.dao.PoseDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-    <bean id="shieldService" class="org.shu.construct.service.ShieldPoseService">
-		<property name="poseDao">
-			<ref bean="poseDao" />
-		</property>
-	</bean>	
-    <bean id="synService" class="org.shu.construct.service.SynService">
+	<bean id="synService" class="org.shu.construct.service.SynService">
 		<property name="synDao">
 			<ref bean="synDao" />
 		</property>
 	</bean>
-	
 	<bean id="synDao" class="org.shu.construct.dao.SynDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
-	
-	
 	<bean id="sgdsService" class="org.shu.construct.service.GpSgdsService">
 		<property name="sgdsDao">
 			<ref bean="sgdsDao" />
@@ -122,8 +114,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="sgdsDao" class="org.shu.construct.dao.SgdsDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
-		<bean id="measureService" class="org.shu.construct.service.GpMeasurepointService">
+
+	<bean id="measureService" class="org.shu.construct.service.GpMeasurepointService">
 		<property name="measureDao">
 			<ref bean="measureDao" />
 		</property>
@@ -131,7 +123,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="measureDao" class="org.shu.construct.dao.MeasureDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-    <bean id="sheshiService" class="org.shu.construct.service.GpAlongsheshiService">
+	<bean id="sheshiService" class="org.shu.construct.service.GpAlongsheshiService">
 		<property name="sheshiDao">
 			<ref bean="sheshiDao" />
 		</property>
@@ -139,7 +131,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="sheshiDao" class="org.shu.construct.dao.SheshiDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+
 	<bean id="authorityDao" class="org.shu.construct.dao.AuthorityDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -188,13 +180,29 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 			<ref bean="totalDao" />
 		</property>
 	</bean>
-	
-		<bean id="xunJianDao" class="org.shu.construct.dao.XunJianDao">
+
+	<bean id="xunJianDao" class="org.shu.construct.dao.XunJianDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="xunJianService" class="org.shu.construct.service.XunJianService">
 		<property name="xunJianDao">
 			<ref bean="xunJianDao" />
+		</property>
+	</bean>
+	<bean id="inCheckDao" class="org.shu.construct.dao.InCheckDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="inCheckService" class="org.shu.construct.service.InCheckService">
+		<property name="inCheckDao">
+			<ref bean="inCheckDao" />
+		</property>
+	</bean>
+	<bean id="rfidDao" class="org.shu.construct.dao.RfidDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="rfidService" class="org.shu.construct.service.RfidService">
+		<property name="rfidDao">
+			<ref bean="rfidDao" />
 		</property>
 	</bean>
 	<bean id="monitorDao" class="org.shu.construct.dao.MonitorDao">
@@ -241,31 +249,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		</property>
 	</bean>
 
-	<bean id="steelRemainDao" class="org.shu.dao.imp.SteelRemainDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="steelRemainService" class="org.shu.service.imp.SteelRemainService">
-		<property name="steelRemainDao">
-			<ref bean="steelRemainDao" />
-		</property>
-		<property name="steelQualService">
-			<ref bean="steelQualService" />
-		</property>
-	</bean>
+
 
 	<bean id="steelQualDao" class="org.shu.dao.imp.SteelQualDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<bean id="manufacturerDao" class="org.shu.dao.imp.ManufacturerDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
 
-	<bean id="manufacturerService" class="org.shu.service.imp.ManufacturerService">
-		<property name="manufacturerDao">
-			<ref bean="manufacturerDao" />
-		</property>
-	</bean>
 
 	<bean id="steelQualService" class="org.shu.service.imp.SteelQualService">
 		<property name="steelQualDao">
@@ -581,8 +571,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="boldDAO" class="org.shu.construct.dao.BoltQualityDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
-	
+
+
 	<bean id="waterProofDAO" class="org.shu.construct.dao.WaterProofDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

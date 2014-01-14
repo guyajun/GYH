@@ -11,12 +11,18 @@ public class TotalService {
 	public void setTotalDao(TotalDao totalDao) {
 		this.totalDao = totalDao;
 	}
+	public ArrayList<GpTotalInfo> getOnePage(int pageNow, int pageSize) {
+		return totalDao.getOnePage(pageNow, pageSize);
+	}
+	public void update(GpTotalInfo gpTotalInfo) {
+		totalDao.updateOneRow(gpTotalInfo);
+	}
 	public ArrayList<GpTotalInfo> getAll()
 	{		
 		return totalDao.getAll();
 	}
-	public ArrayList<GpTotalInfo> getByLoop(int loop)
+	public ArrayList<GpTotalInfo> getByLoop(int tunnelLoop)
 	{		
-		return totalDao.getByLoop(loop);
+		return totalDao.getByLoop(tunnelLoop);
 	}	
 }
