@@ -6,6 +6,14 @@
 	<constant name="struts.multipart.maxSize" value="104758600" />
 	<include file="struts-default.xml" />
 
+	<package name="stream" namespace="/stream" extends="struts-default">
+		<action name="stream" class="org.shu.construct.action.StreamAction"
+			method="getStream">
+			<result name="success" type="stream">
+				<param name="inputName">fileStream</param>
+			</result>
+		</action>
+	</package>
 	<package name="system" namespace="/system" extends="struts-default">
 		<action name="usermanage" class="org.shu.admin.action.UserAction"
 			method="getAll">
@@ -22,7 +30,19 @@
 			<result type="redirectAction">usermanage</result>
 		</action>
 	</package>
-	<package name="web" namespace="/construct-web" extends="json-default">
+	<package name="product" namespace="/product" extends="json-default">
+		<action name="addBig" class="org.shu.construct.action.ProductAction"
+			method="addBig">
+			<result name="success">/product/product.jsp</result>
+		</action>
+		<action name="addSmall" class="org.shu.construct.action.ProductAction"
+			method="addSmall">
+			<result name="success">/product/product.jsp</result>
+		</action>
+		<action name="getAll" class="org.shu.construct.action.ProductAction"
+			method="getAll">
+			<result name="success">/product/product.jsp</result>
+		</action>
 	</package>
 </struts>
 
