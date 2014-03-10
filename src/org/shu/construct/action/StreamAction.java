@@ -23,9 +23,11 @@ public class StreamAction extends BaseAction {
 		CommonParam cp = new CommonParam();
 		String localPath = cp.getString("local-imgs-path");
 		String imgName = request.getParameter("imgName");
-		File file = new File(localPath + imgName);
-		InputStream is = new FileInputStream(file);
-		fileStream = new BufferedInputStream(is);
+		if (!imgName.equals("") && imgName!=null) {
+			File file = new File(localPath + imgName);
+			InputStream is = new FileInputStream(file);
+			fileStream = new BufferedInputStream(is);
+		}
 		return SUCCESS;
 	}
 }

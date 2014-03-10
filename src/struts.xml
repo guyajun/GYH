@@ -14,30 +14,64 @@
 			</result>
 		</action>
 	</package>
-	<package name="system" namespace="/system" extends="struts-default">
-		<action name="usermanage" class="org.shu.admin.action.UserAction"
-			method="getAll">
-			<result name="success">/Web/admin-manage/usermanage.jsp</result>
-			<result name="input">/Web/admin-manage/usermanage.jsp</result>
+	<package name="system" namespace="/system" extends="json-default">
+		<action name="homeProduct" class="org.shu.construct.action.ProductAction"
+			method="homeProduct">
+			<result name="success">/product/home-product.jsp</result>
 		</action>
-		<action name="getByname" class="org.shu.admin.action.UserAction"
-			method="getByname">
-			<result name="success">/Web/admin-manage/usermanage.jsp</result>
-			<result name="input">/Web/admin-manage/usermanage.jsp</result>
+		<action name="note_*" class="org.shu.construct.action.NoteAction"
+			method="{1}">
+			<result name="success">/product/attitude.jsp</result>
 		</action>
-		<action name="adduser" class="org.shu.admin.action.UserAction"
-			method="addUser">
-			<result type="redirectAction">usermanage</result>
+		<action name="userInfo_*" class="org.shu.construct.action.UserInfoAction"
+			method="{1}">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="resetPassword" class="org.shu.construct.action.UserInfoAction"
+			method="resetPassword">
+			<result name="success">/product/reset-password.jsp</result>
+		</action>
+		<action name="active" class="org.shu.construct.action.UserInfoAction"
+			method="active">
+			<result name="success">/product/active.jsp</result>
+		</action>
+		<action name="login" class="org.shu.construct.action.UserInfoAction"
+			method="login">
+			<result name="ok" type="json"></result>
+			<result name="notPassword" type="json"></result>
+			<result name="notActive" type="json"></result>
+			<result name="notEmail" type="json"></result>
+		</action>
+		<action name="resetOrRegister" class="org.shu.construct.action.UserInfoAction"
+			method="resetOrRegister">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="register" class="org.shu.construct.action.UserInfoAction"
+			method="register">
+			<result name="pleaseActive" type="json"></result>
+			<result name="emailExisted" type="json"></result>
+		</action>
+		<action name="passwordEmail" class="org.shu.construct.action.UserInfoAction"
+			method="passwordEmail">
+			<result name="ok" type="json"></result>
 		</action>
 	</package>
 	<package name="product" namespace="/product" extends="json-default">
-		<action name="addBig" class="org.shu.construct.action.ProductAction"
-			method="addBig">
+		<action name="product_*" class="org.shu.construct.action.ProductAction"
+			method="{1}">
 			<result name="success">/product/product.jsp</result>
 		</action>
-		<action name="addSmall" class="org.shu.construct.action.ProductAction"
-			method="addSmall">
-			<result name="success">/product/product.jsp</result>
+		<action name="detail" class="org.shu.construct.action.ProductAction"
+			method="detail">
+			<result name="success">/product/one-product.jsp</result>
+		</action>
+		<action name="delete" class="org.shu.construct.action.ProductAction"
+			method="delete">
+			<result name="success">/product/one-product.jsp</result>
+		</action>
+		<action name="upload" class="org.shu.construct.action.ProductAction"
+			method="upload">
+			<result name="success">/product/one-product.jsp</result>
 		</action>
 		<action name="getAll" class="org.shu.construct.action.ProductAction"
 			method="getAll">

@@ -17,42 +17,12 @@
 <script src="/GYH/product/product.js"></script>
 </head>
 <body>
-	<div class="navbar navbar-default navbar-fixed-top"
-		style="background-color: #26AC7B;" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Project name</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="#">首页</a>
-					</li>
-					<li><a href="/GYH/product/getAll.action?category=1">产品</a></li>
-					<li><a href="#contact">服务</a>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../navbar/">Default</a>
-					</li>
-					<li><a href="../navbar-static-top/">Static top</a>
-					</li>
-					<li><a href="./">Fixed top</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="/product/menu.jsp"></jsp:include>
 	<div id="wrap">
 		<div class="container">
 			<div class="row" style="padding-top:60px;">
 				<div class="col-sm-3">
-					<div class="panel panel-success">
+					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">所有产品</h3>
 						</div>
@@ -69,16 +39,21 @@
 											</tr>
 										</s:if>
 									</s:iterator>
-									<tr>
-										<td><a href="#" data-toggle="modal"
-											data-target="#modal-add-big-category">添加大类</a>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="#" data-toggle="modal"
-											data-target="#modal-add-small-category">添加小类</a>
-										</td>
-									</tr>
+
+									<s:if
+										test="#session.email=='724640273@qq.com' || #session.email=='1037536894@qq.com'">
+										<tr>
+											<td><a href="#" data-toggle="modal"
+												class="btn btn-success"
+												data-target="#modal-add-big-category">添加大类(如上)</a></td>
+										</tr>
+										<tr>
+											<td><a href="#" data-toggle="modal"
+												class="btn btn-success"
+												data-target="#modal-add-small-category">添加新品(如右)</a>
+											</td>
+										</tr>
+									</s:if>
 								</tbody>
 							</table>
 						</div>
@@ -87,8 +62,8 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<form id="form1" method="post"
-									action="/GYH/product/addBig.action" class="form-horizontal"
-									role="form">
+									action="/GYH/product/product_addBig.action"
+									class="form-horizontal" role="form">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal"
 											aria-hidden="true">&times;</button>
@@ -117,8 +92,9 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<form id="form2" method="post"
-									action="/GYH/product/addSmall.action" class="form-horizontal"
-									role="form" enctype="multipart/form-data">
+									action="/GYH/product/product_addSmall.action"
+									class="form-horizontal" role="form"
+									enctype="multipart/form-data">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal"
 											aria-hidden="true">&times;</button>
@@ -155,14 +131,14 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="market-price" class="col-sm-4 control-label">市场价：</label>
+											<label for="market-price" class="col-sm-4 control-label">市场价(￥)：</label>
 											<div class="col-sm-6">
 												<input id="market-price" name="marketPrice" type="text"
 													class="form-control">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="good-price" class="col-sm-4 control-label">优惠价：</label>
+											<label for="good-price" class="col-sm-4 control-label">优惠价(￥)：</label>
 											<div class="col-sm-6">
 												<input id="good-price" name="goodPrice" type="text"
 													class="form-control">
@@ -192,7 +168,88 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-info" style="height:600px;">
+					<div class="modal fade" id="modal-edit">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<form id="form3" method="post"
+									action="/GYH/product/product_editSmall.action"
+									class="form-horizontal" role="form"
+									enctype="multipart/form-data">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title">修改产品信息</h4>
+									</div>
+									<div class="modal-body">
+										<div id="alert1" class="alert alert-danger text-center hide"></div>
+										<div class="form-group">
+											<label for="name" class="col-sm-4 control-label">产品名称：</label>
+											<div class="col-sm-6">
+												<input id="name" name="name" type="text"
+													class="form-control"> <input id="id" name="id"
+													type="hidden" class="form-control">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="brand" class="col-sm-4 control-label">品牌：</label>
+											<div class="col-sm-6">
+												<input id="brand" name="brand" type="text"
+													class="form-control">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="brand" class="col-sm-4 control-label">选择大类：</label>
+											<div class="col-sm-6">
+												<select id="select" class="form-control" name="parentId">
+													<s:iterator value="#request.list" id="product">
+														<s:if test="#product.parentId==0">
+															<option value="<s:property value="#product.id"/>">
+																<s:property value="#product.name" />
+															</option>
+														</s:if>
+													</s:iterator>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="market-price" class="col-sm-4 control-label">市场价(￥)：</label>
+											<div class="col-sm-6">
+												<input id="market-price" name="marketPrice" type="text"
+													class="form-control">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="good-price" class="col-sm-4 control-label">优惠价(￥)：</label>
+											<div class="col-sm-6">
+												<input id="good-price" name="goodPrice" type="text"
+													class="form-control">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="specification" class="col-sm-4 control-label">规格：</label>
+											<div class="col-sm-6">
+												<input id="specification" name="specification" type="text"
+													class="form-control">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="image" class="col-sm-4 control-label">替换图片：</label>
+											<div class="col-sm-6">
+												<input id="image" name="upload" type="file"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button id='button3' type="button" class="btn btn-success">保存</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-info">
 						<div class="panel-heading">
 							<h3 class="panel-title">友情链接</h3>
 						</div>
@@ -216,6 +273,13 @@
 						</div>
 					</div>
 				</div>
+				<form id="form-hide" method="post"
+					action="/GYH/product/product_deleteProduct.action"
+					class="hide form-horizontal" role="form">
+					<input id="id" name="id" type="text" class="form-control">
+					<input id="parentId" name="parentId" type="text"
+						class="form-control">
+				</form>
 				<div class="col-sm-9">
 					<div class="panel panel-info">
 						<div class="panel-heading">
@@ -223,32 +287,37 @@
 						</div>
 						<div class="panel-body">
 							<s:iterator value="#request.list1" id="product1">
-								<div class="col-sm-6">
+								<div class="col-sm-4">
 									<div class="thumbnail">
-										<img
+										<a
+											href="/GYH/product/detail.action?productId=<s:property value="#product1.id"/>"><img
 											src="/GYH/stream/stream.action?imgName=<s:property value="#product1.image1"/>"
-											alt="...">
+											alt="..." style="height:200px;"> </a>
 										<div class="caption text-center">
 											<h3>
 												<s:property value="#product1.name" />
 											</h3>
 											<table class="table">
 												<tbody>
-													<tr>
-														<td>品牌：</td>
-														<td><s:property value="#product1.brand" /></td>
+													<tr class="danger">
+														<td id="market-price"><s>￥<s:property
+																	value="#product1.marketPrice" /> </s></td>
+														<td id="good-price">￥<s:property
+																value="#product1.goodPrice" /></td>
 													</tr>
 													<tr>
-														<td>市场价(￥)：</td>
-														<td><s:property value="#product1.marketPrice" /></td>
-													</tr>
-													<tr>
-														<td>优惠价(￥)：</td>
-														<td><s:property value="#product1.goodPrice" /></td>
-													</tr>
-													<tr>
-														<td>规格(g)：</td>
-														<td><s:property value="#product1.specification" /></td>
+														<td id="id" class="hide"><s:property
+																value="#product1.id" /></td>
+														<td id="parentId" class="hide"><s:property
+																value="#product1.parentId" /></td>
+														<td id="name" class="hide"><s:property
+																value="#product1.name" /></td>
+														<s:if
+															test="#session.email=='724640273@qq.com' || #session.email=='1037536894@qq.com'">
+															<td><a href="#" class="edit" data-toggle="modal"
+																data-target="#modal-edit">修改</a></td>
+															<td><a href="#" class="delete">删除</a></td>
+														</s:if>
 													</tr>
 												</tbody>
 											</table>
@@ -260,13 +329,8 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
-	<div id="footer">
-		<div class="container" style="padding-top:20px;">
-			<p class="text-center">谷钰行实业有限公司</p>
-		</div>
-	</div>
+	<jsp:include page="/product/foot.jsp"></jsp:include>
 </body>
 </html>

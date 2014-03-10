@@ -14,10 +14,16 @@ public class ProductService {
 	public void addProduct(Product product) {
 		productDao.addProduct(product);
 	}
+	public void editProduct(Product product) {
+		productDao.editProduct(product);
+	}
 	public ArrayList<Product> getAll()
 	{		
 		return productDao.getAll();
 	}	
+	public void deleteProduct(Product product) {
+		productDao.delete(product);
+	}
 	public ArrayList<Product> getById(int id) {
 		return productDao.getById(id);
 	}

@@ -28,8 +28,18 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		<property name="mappingResources">
 			<list>
 				<value>org/shu/model/Product.hbm.xml</value>
+				<value>org/shu/model/UserInfo.hbm.xml</value>
+				<value>org/shu/model/Note.hbm.xml</value>
 			</list>
 		</property>
+	</bean>
+	<bean id="noteService" class="org.shu.construct.service.NoteService">
+		<property name="noteDao">
+			<ref bean="noteDao" />
+		</property>
+	</bean>
+	<bean id="noteDao" class="org.shu.construct.dao.NoteDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="productService" class="org.shu.construct.service.ProductService">
 		<property name="productDao">
@@ -37,6 +47,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		</property>
 	</bean>
 	<bean id="productDao" class="org.shu.construct.dao.ProductDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userInfoService" class="org.shu.construct.service.UserInfoService">
+		<property name="userInfoDao">
+			<ref bean="userInfoDao" />
+		</property>
+	</bean>
+	<bean id="userInfoDao" class="org.shu.construct.dao.UserInfoDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>
