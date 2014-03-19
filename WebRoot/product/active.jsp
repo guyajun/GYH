@@ -15,6 +15,7 @@
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
 <script src="/GYH/product/index.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 </head>
 <body>
 	<jsp:include page="/product/menu.jsp"></jsp:include>

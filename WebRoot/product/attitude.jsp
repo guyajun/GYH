@@ -14,6 +14,7 @@
 <script src="/GYH/js/jquery.validate.js"></script>
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var _form888 = $('#form888');

@@ -14,6 +14,7 @@
 <script src="/GYH/js/jquery.validate.js"></script>
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var _form0 = $('#form0');
@@ -121,6 +122,7 @@
 </script>
 </head>
 <body>
+	<jsp:include page="/product/menu.jsp"></jsp:include>
 	<div id="wrap">
 		<div class="container">
 			<img alt="" src="/GYH/image/nav.jpg" style="height:350px;width:100%;">

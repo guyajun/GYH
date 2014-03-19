@@ -15,6 +15,7 @@
 <script src="/GYH/js/jquery.validate.js"></script>
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 </head>
 <body>
 	<jsp:include page="/product/menu.jsp"></jsp:include>
@@ -31,7 +32,7 @@
 					</ol>
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="/GYH/image/nav.jpg" style="height:300px;width:100%;"
+							<img src="/GYH/image/nav.jpg" style="height:300px;"
 								alt="First slide">
 							<div class="carousel-caption">
 								<h3>水果一箩筐</h3>
@@ -65,8 +66,7 @@
 						data-slide="next"> <span
 						class="glyphicon glyphicon-chevron-right"></span> </a>
 				</div>
-			</div>
-			<div class="row" style="padding-top:10px;width:100%;">
+			<div style="padding-top:10px;width:100%;">
 				<div class="col-sm-8">
 					<div class="panel panel-info" style="height:200px;">
 						<div class="panel-heading">

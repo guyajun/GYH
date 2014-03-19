@@ -15,25 +15,29 @@
 <script src="/GYH/js/jquery.validate.js"></script>
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 </head>
-<body><div>
-	<s:iterator value="#request.list2" id="product">
-		<div class="col-sm-4">
-			<div class="thumbnail" style="height:420px;">
-				<a
-					href="/GYH/product/detail.action?productId=<s:property value="#product.id"/>"><img  target="_parent"
-					src="/GYH/stream/stream.action?imgName=<s:property value="#product.image1"/>"
-					alt="..." style="height:150px;"> </a>
-				<div class="caption text-center">
-					<h3>
-						<s:property value="#product.name" />
-					</h3>
-					<br> <s>￥<s:property value="#product.marketPrice" />&nbsp&nbsp&nbsp
-					</s>￥
-					<s:property value="#product.goodPrice" />
+<body>
+	<div>
+		<s:iterator value="#request.list2" id="product">
+			<div class="col-sm-4">
+				<div class="thumbnail" style="height:420px;">
+					<a
+						href="/GYH/product/detail.action?productId=<s:property value="#product.id"/>"><img
+						target="_parent"
+						src="/GYH/stream/stream.action?imgName=<s:property value="#product.image1"/>"
+						alt="..." style="height:150px;"> </a>
+					<div class="caption text-center">
+						<h3>
+							<s:property value="#product.name" />
+						</h3>
+						<br> <s>￥<s:property value="#product.marketPrice" />&nbsp&nbsp&nbsp
+						</s>￥
+						<s:property value="#product.goodPrice" />
+					</div>
 				</div>
 			</div>
-		</div>
-	</s:iterator></div>
+		</s:iterator>
+	</div>
 </body>
 </html>

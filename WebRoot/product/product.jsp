@@ -15,6 +15,7 @@
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
 <script src="/GYH/product/product.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 </head>
 <body>
 	<jsp:include page="/product/menu.jsp"></jsp:include>
@@ -300,9 +301,9 @@
 											<table class="table">
 												<tbody>
 													<tr class="danger">
-														<td id="market-price"><s>￥<s:property
+														<td id="market-price"><s><s:property
 																	value="#product1.marketPrice" /> </s></td>
-														<td id="good-price">￥<s:property
+														<td id="good-price"><s:property
 																value="#product1.goodPrice" /></td>
 													</tr>
 													<tr>

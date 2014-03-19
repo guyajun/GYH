@@ -15,6 +15,7 @@
 <script src="/GYH/js/bootstrap.js"></script>
 <script src="/GYH/js/bootbox.js"></script>
 <script src="/GYH/product/product.js"></script>
+<script src="/GYH/js/respond.src.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$('.upload').on('click', function() {
